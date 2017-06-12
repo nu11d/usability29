@@ -73,9 +73,8 @@
       '</div>'+        
       'mn'      
     }).Class({        
-      constructor: [m1.Calendar, m1.nService, function(m1Calendar,m1nService) {          
-        this.Calendar = m1Calendar;          
-        this.n = m1nService;        
+      constructor: [m1.Calendar, function(m1Calendar) {          
+        this.Calendar = m1Calendar;      
       }],        
       ngOnInit: function() {          
         let cYear = 2017;          
@@ -101,8 +100,7 @@
         return (cell.value? cell.value +"("+this.Calendar.cDay()[type]+")" : "");        
       },        
       ngAfterViewInit: function() {          
-        //instead of ngOnInit we wait for dom id ready.          
-        //let me = this.n.getN('chart',document.body);        
+     
       }      
     });      
     let AppComponent = ng.core.Component({        
@@ -141,7 +139,7 @@
       let AppModule = ng.core.NgModule({          
         imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule ],          
         declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel, m1.Sel_cmn_mst_shain ],          
-        providers: [ m1.Calendar, m1.nService ],          
+        providers: [ m1.Calendar ],          
         bootstrap: [ AppComponent ]        
       }).Class({          
         constructor: function() {          
