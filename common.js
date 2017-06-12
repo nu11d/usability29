@@ -4,6 +4,7 @@
 // })(window.global || (window.global = {}));</script>
 
 (function(global){
-let common = "imcommon "+new Date();
-global.common = common;
+let date = new Date();
+let common = "imcommon ";
+global.common = common+date;
 })(window.global || (window.global = {}));
