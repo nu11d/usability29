@@ -47,8 +47,7 @@
       '\'mdl-cell--3-offset-desktop\': index%7==0,'+                                    
       '\'first-bag\': num.value>0}"'+                    
       ' class="mdl-cell mdl-cell--2-col mdl-cell--3-col-desktop"'+                    
-      '>{{ cellinfo(num) }}'+                    
-      '社員：<sel_cmn_mst_shain (change)="extend($event);" name="require" data-tbl_name="cmn_mst_shain" data-col_name="shacd,shacd,shainnm"></sel_cmn_mst_shain>'+                    
+      '>{{ cellinfo(num) }}'+                                       
       '</div>'+                  
       '</ng-template>'+                  
       '<ng-template #elseBlock>'+                                    
@@ -61,8 +60,7 @@
       '<template ngFor let-num [ngForOf]="three" let-index="index">'+                  
       '<template [ngIf]="row==num.row&&index%7>=3">'+                    
       '<div [ngClass]="{\'first-bag\': num.value>0}" class="mdl-cell mdl-cell--2-col mdl-cell--3-col-desktop">'+                      
-      '{{ cellinfo(num) }}'+                      
-      '社員：<sel_cmn_mst_shain (change)="extend($event);" name="require" data-tbl_name="cmn_mst_shain" data-col_name="shacd,shacd,shainnm"></sel_cmn_mst_shain>'+                    
+      '{{ cellinfo(num) }}'+                                       
       '</div>'+                  
       '</template>'+                  
       '</template>'+                
@@ -116,8 +114,7 @@
       '<div class="mdl-grid mdl-grid--no-spacing">'+        
       '<mn [relate]="-1">'+        
       '<ng-container role="header">'+        
-      'This is my header content.'+        
-      '<template [ngIf]="isset(shacd)"><button>{{shacd}}</button></template>'+        
+      'This is my header content.'+     
       '</ng-container>'+        
       '</mn><mn></mn><mn [relate]="1"></mn>'+        
       '</div>'+        
