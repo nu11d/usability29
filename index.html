@@ -7,6 +7,7 @@
 <script src="//unpkg.com/@angular/common/bundles/common.umd.js"></script>
 <script src="//unpkg.com/@angular/compiler/bundles/compiler.umd.js"></script>
 <script src="//unpkg.com/@angular/http/bundles/http.umd.js"></script>
+<script src="//npmcdn.com/angular-in-memory-web-api@0.3.2"></script>
 <script src="//unpkg.com/@angular/forms/bundles/forms.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
@@ -73,6 +74,7 @@
     }).Class({  
       constructor: [m1.Calendar, function(m1Calendar) {    
         this.Calendar = m1Calendar;
+        console.log(ng);
       }],  
       ngOnInit: function() {    
         let cYear = 2017;    
@@ -134,7 +136,7 @@
     });
     document.addEventListener('DOMContentLoaded', function() {  
       let AppModule = ng.core.NgModule({    
-        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule ],    
+        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.InMemoryWebApiModule ],    
         declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel ],    
         providers: [ m1.Calendar ],    
         bootstrap: [ AppComponent ]  
