@@ -392,33 +392,6 @@
 
 	let nService = function () {};
 	
-	nService.prototype.getN = function (prefix,domparent) {
-
-		let dompool = [];
-		let i = 1;
-		let domid = prefix+i;
-		while(document.getElementById(domid)) {
-			dompool.push(domid);
-			i += 1;
-			domid = prefix+i;
-		}
-		//console.log(dompool);
-
-
-		let checktarget = 0;
-		let ix = 0;
-
-		for (let i=0; i<domparent.children.length; i++) {
-			checktarget = domparent.children[i].lastChild;
-			ix += 1;
-			if (!checktarget.getAttribute('id')) {
-				checktarget.setAttribute('id',prefix+ix);
-				break;
-			}
-		}
-		return checktarget;
-	}
-	
 	template2.share = 2;
 	template2.module1 = ng.core.NgModule({ }).Class({ constructor: function() { } });
 	template2.module1.Sel = Sel;
