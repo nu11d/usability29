@@ -9,11 +9,153 @@
 <script src="//unpkg.com/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
 <script src="./common.js"></script>
+<script src="./module1.js"></script>
+<script>(function(template2){      
+    let m1 =  template2.module1;      
+    let TplComponent = ng.core.Component({        
+      selector: 'tpl-2b',        
+      template: ''+        
+      '<ng-content select="ng-container[role=footer]"></ng-content>'+        
+      '<ng-content></ng-content>'+        
+      '<ng-content select="ng-container[role=header]"></ng-content>'+        
+      'tpl-2b'      
+    }).Class({        
+      constructor: [function() {        
+      }],        
+      ngOnInit: function() {        
+      }      
+    });      
+    let MnComponent = ng.core.Component({        
+      selector: 'mn',        
+      inputs: ['relate'],        
+      template: ''+        
+      '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+          
+      '<div class="mdl-grid mdl-grid--no-spacing">'+            
+      '<div class="mdl-cell mdl-cell--12-col">'+              
+      '<strong>{{cnMonth}}月</strong>'+              
+      '<ng-content select="ng-container[role=header]"></ng-content>'+            
+      '</div>'+            
+      '<template ngFor let-row [ngForOf]="[0,1,2,3,4,5]">'+              
+      '<div class="mdl-cell mdl-cell--6-col-desktop">'+                
+      '<div class="mdl-grid mdl-grid--no-spacing">'+                  
+      '<template ngFor let-num [ngForOf]="three" let-index="index">'+                  
+      '<div *ngIf="row==num.row&&index%7<3; then thenBlock else elseBlock"></div>'+                  
+      '<ng-template #thenBlock>'+                    
+      '<div [ngClass]="{\'mdl-cell--2-offset\': index%7==0,'+                                    
+      '\'mdl-cell--3-offset-desktop\': index%7==0,'+                                    
+      '\'first-bag\': num.value>0}"'+                    
+      ' class="mdl-cell mdl-cell--2-col mdl-cell--3-col-desktop"'+                    
+      '>{{ cellinfo(num) }}'+                    
+      '社員：<sel_cmn_mst_shain (change)="extend($event);" name="require" data-tbl_name="cmn_mst_shain" data-col_name="shacd,shacd,shainnm"></sel_cmn_mst_shain>'+                    
+      '</div>'+                  
+      '</ng-template>'+                  
+      '<ng-template #elseBlock>'+                                    
+      '</ng-template>'+                  
+      '</template>'+                
+      '</div>'+              
+      '</div>'+              
+      '<div class="mdl-cell mdl-cell--6-col-desktop">'+                
+      '<div class="mdl-grid mdl-grid--no-spacing">'+                  
+      '<template ngFor let-num [ngForOf]="three" let-index="index">'+                  
+      '<template [ngIf]="row==num.row&&index%7>=3">'+                    
+      '<div [ngClass]="{\'first-bag\': num.value>0}" class="mdl-cell mdl-cell--2-col mdl-cell--3-col-desktop">'+                      
+      '{{ cellinfo(num) }}'+                      
+      '社員：<sel_cmn_mst_shain (change)="extend($event);" name="require" data-tbl_name="cmn_mst_shain" data-col_name="shacd,shacd,shainnm"></sel_cmn_mst_shain>'+                    
+      '</div>'+                  
+      '</template>'+                  
+      '</template>'+                
+      '</div>'+              
+      '</div>'+            
+      '</template>'+          
+      '</div>'+        
+      '</div>'+        
+      'mn'      
+    }).Class({        
+      constructor: [m1.Calendar, m1.nService, function(m1Calendar,m1nService) {          
+        this.Calendar = m1Calendar;          
+        this.n = m1nService;        
+      }],        
+      ngOnInit: function() {          
+        let cYear = 2017;          
+        let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );          
+        let cMonth = this.Calendar.cMonth(ciMonth+1);          
+        this.cnMonth = this.Calendar.cnMonth(ciMonth);          
+        this.three = [];          
+        let cellelement = [];          
+        for (let row=0; row<cMonth[1].length; row++) {            
+          for (let col=0; col<cMonth[1][row].length; col++) {              
+            let cellelement = {                
+              value: cMonth[1][row][col],                
+              name: cYear+"-"+ciMonth+"-"+cMonth[1][row][col],                
+              type: new Date(cYear,ciMonth,cMonth[1][row][col]).getDay(),                
+              row: row              
+            }              
+            this.three.push(cellelement);            
+          }          
+        }        
+      },        
+      cellinfo: function(cell) {          
+        let type = cell.type;          
+        return (cell.value? cell.value +"("+this.Calendar.cDay()[type]+")" : "");        
+      },        
+      ngAfterViewInit: function() {          
+        //instead of ngOnInit we wait for dom id ready.          
+        let me = this.n.getN('chart',document.body);        
+      }      
+    });      
+    let AppComponent = ng.core.Component({        
+      selector: 'demo-app',        
+      template: ''+        
+      '<tpl-2b>'+        
+      '<ng-container role="header">'+        
+      'This is my header content.'+        
+      '</ng-container>'+        '
+      <ng-container role="footer">'+        
+      'This is my footer content.'+        
+      '</ng-container>'+        
+      '<div class="mdl-grid mdl-grid--no-spacing">'+        
+      '<mn [relate]="-1">'+        
+      '<ng-container role="header">'+        
+      'This is my header content.'+        
+      '<template [ngIf]="isset(shacd)"><button>{{shacd}}</button></template>'+        
+      '</ng-container>'+        
+      '</mn><mn></mn><mn [relate]="1"></mn>'+        
+      '</div>'+        
+      '</tpl-2b>'+        
+      'demo-app'      
+    }).Class({        
+      constructor: [function() {        
+      }],        
+      ngOnInit: function() {        
+      },        
+      extend: function(event) {          
+        this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;        
+      },        
+      isset: function(property) {          
+        return !(typeof property === "undefined");        
+      }      
+    });      
+    document.addEventListener('DOMContentLoaded', function() {        
+      let AppModule = ng.core.NgModule({          
+        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule ],          
+        declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel, m1.Sel_cmn_mst_shain ],          
+        providers: [ m1.Calendar, m1.nService ],          
+        bootstrap: [ AppComponent ]        
+      }).Class({          
+        constructor: function() {          
+        }        
+      });        
+      ng.platformBrowserDynamic          
+        .platformBrowserDynamic()          
+        .bootstrapModule(AppModule);      
+    });            
+    template2.share = (template2.share ? true : false);    
+  })(window.template2 || (window.template2 = {}));  </script>
 </head><body>
 <p>index.html</p>
 <script>(function(global){
 let m1 =  global.common;
 document.write(m1);
-document.write(ng);
 })(window.global || (window.global = {}));</script>
+<demo-app></demo-app>
 </body></html>
