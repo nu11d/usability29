@@ -176,32 +176,6 @@
 
 	});
 
-	let Sel_cmn_mst_shain = ng.core
-	.Component({
-		selector: 'sel_cmn_mst_shain',
-		template: '<sel [col_name]="data" [tbl_name]="name" [option]="option"></sel>'
-	})
-	.Class({
-		constructor: function() {
-			let htmlsel = document.getElementsByTagName("sel_cmn_mst_shain");
-			let option = false;
-
-			if( htmlsel.length && htmlsel[0].dataset ) {
-				if(htmlsel[0].dataset.col_name) {
-					this.data = htmlsel[0].dataset.col_name.split(",");
-				}
-				if(htmlsel[0].dataset.tbl_name) {
-					this.name = htmlsel[0].dataset.tbl_name;
-				}
-				if(htmlsel[0].dataset.option) {
-					option = true;
-				}
-			}
-
-			this.option = option;
-		}
-	});
-
 	let Calendar = function () {};
 	Calendar.prototype.cDay = function (offset) {
 		this.youbi = ['日','月','火','水','木','金','土'];
@@ -395,7 +369,6 @@
 	template2.share = 2;
 	template2.module1 = ng.core.NgModule({ }).Class({ constructor: function() { } });
 	template2.module1.Sel = Sel;
-	template2.module1.Sel_cmn_mst_shain = Sel_cmn_mst_shain;
 	template2.module1.Calendar = Calendar;
 	template2.module1.Rdbms = Rdbms;
 	template2.module1.nService = nService;
