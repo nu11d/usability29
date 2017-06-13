@@ -186,14 +186,28 @@
       '<ng-container role="header">'+  
       'This is my header content.'+     
       '</ng-container>'+  
-      '</mn><mn></mn><mn [relate]="1"></mn>'+  
+      '</mn>'+  
       '</div>'+  
       '</tpl-2b>'+  
       'demo-app'
     }).Class({  
       constructor: [function() {  
       }],  
-      ngOnInit: function() {  
+      ngOnInit: function() {
+        popupS.confirm({
+            content: ''+
+              '<div class="dropper-form aligned">'+
+                '<mn></mn><mn [relate]="1"></mn>'+
+                '<div class="dropper-form-controls">'+
+                  '<button type="submit" class="dropper-button primary button-purple">ボタン</button>'+
+                '</div>'+
+              '</div>',
+            labelOk: '続く②',
+            labelCancel: '閉じ②',
+            onSubmit: function() {
+              this2.tingle.open();
+            }
+          });  
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
