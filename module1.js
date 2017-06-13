@@ -371,7 +371,7 @@
 	InMemHeroService.prototype.lst = function () {
 		let http = new ng.http.Http;
 		let name = ["Sprite","X","Net","Mix"];
-		return http.get('api/heroes');
+		return http.get('heroes.json');
 	}
 
 	
