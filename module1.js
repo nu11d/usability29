@@ -373,7 +373,7 @@
 			{id: 3, name: "Net"},
 			{id: 4, name: "Mix"}
 			];
-		return ng.inMemoryWebApi.InMemoryDbService;
+		//return ng.inMemoryWebApi.InMemoryDbService;
 		//return hero;
 	}
 
