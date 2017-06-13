@@ -368,7 +368,7 @@
 
 	let InMemHeroService = function () {
 		let hero = ["Sprite","X","Net","Mix"];
-		return ng.inMemoryWebApi.InMemoryDbService.createDb(hero);
+		return ng.inMemoryWebApi.InMemoryDbService(hero);
 	};
 
 	InMemHeroService.prototype.lst = function () {
