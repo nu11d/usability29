@@ -367,10 +367,18 @@
 	let nService = function () {};
 
 	let InMemHeroService = function () {
-
+		let hero = [
+			{id: 1, name: "Sprite"},
+			{id: 2, name: "X"},
+			{id: 3, name: "Net"},
+			{id: 4, name: "Mix"}
+			];
+		return hero;
 	};
 
-	InMemHeroService.prototype.lst = function () {
+	let hero = function () { };
+	
+	hero.prototype.lst = function () {
 		let name = ["Sprite","X","Net","Mix"];
 		return name;
 	}
@@ -383,4 +391,5 @@
 	template2.module1.Rdbms = Rdbms;
 	template2.module1.nService = nService;
 	template2.module1.InMemHeroService = InMemHeroService;
+	template2.module1.hero = hero;
 })(window.template2 || (window.template2 = {}));
