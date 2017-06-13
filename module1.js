@@ -378,8 +378,8 @@
 	};
 
 	InMemHeroService.prototype.lst = function () {
-		let hero = ["Sprite","X","Net","Mix"];
-		return hero;
+		let name = ["Sprite","X","Net","Mix"];
+		return name;
 	}
 
 	
