@@ -367,7 +367,7 @@
 	let nService = function () {};
 
 	let InMemHeroService = function () {
-		return ng.inMemoryWebApi.InMemoryWebApiModule.InMemoryDbService;
+		return ng.inMemoryWebApi.InMemoryDbService;
 	};
 
 	InMemHeroService.prototype.lst = function () {
