@@ -29,15 +29,23 @@
       constructor: [function() {  
       }],  
       ngOnInit: function() {
-        popupS.modal({
-          content: '<div class="dropper-form aligned">'+
-                    '<div class="dropper-form-controls">'+
-                      '<button type="submit" class="dropper-button primary button-purple">Submit</button>'+
-                    '</div>'+
+        popupS.confirm({
+          content: ''+
+            '<div class="dropper-form aligned">'+
+              '<div class="dropper-form-controls">'+
+                '<button type="submit" class="dropper-button primary button-purple">Submit</button>'+
+              '</div>'+
             '</div>',
+          labelOk: '続く',
+          labelCancel: 'No',
+          onSubmit: function() {
+            popupS.modal({
+              content: 'you hit 続く!'
+            });
+          },
           onClose: function(val) {
             popupS.modal({
-              content: 'Hi, ' + val + '!'
+              content: 'Bye, ' + val + '!'
             });
           }
         });
