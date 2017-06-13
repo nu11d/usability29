@@ -81,7 +81,19 @@
         console.log(this.InMemHeroService);
         console.log(this.InMemHeroService.lst());
       }],  
-      ngOnInit: function() {    
+      ngOnInit: function() {
+
+
+        popupS.modal({
+          content: 'What is your name?',
+          onSubmit: function(val) {
+            popupS.modal({
+                    content: 'Hi, ' + val + '!'
+            });
+          }
+        });
+
+
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
         let cMonth = this.Calendar.cMonth(ciMonth+1);    
