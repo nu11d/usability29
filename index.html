@@ -22,11 +22,11 @@
     let m1 =  template2.module1;
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',  
-      template: ''+  
+      template: ''+
+      '<button (click)="tingle()">poptingle</button>'+  
       '<ng-content select="ng-container[role=footer]"></ng-content>'+  
       '<ng-content></ng-content>'+  
       '<ng-content select="ng-container[role=header]"></ng-content>'+ 
-      '<button on-click="tingle()">pop</button>'+ 
       'tpl-2b'
     }).Class({  
       constructor: [function() {  
