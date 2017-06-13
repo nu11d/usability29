@@ -78,7 +78,10 @@
             flagShowCloseBtn: false,
             onSubmit: function() {
               popupS.modal({
-                content: '完了!'
+                content: '完了!',
+                flagCloseByEsc: true,
+                flagCloseByOverlay: false,          
+                flagShowCloseBtn: false
               });
             },
             onClose: function(val) {
