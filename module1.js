@@ -367,7 +367,12 @@
 	let nService = function () {};
 
 	let InMemHeroService = function () {
-		let hero = ["Sprite","X","Net","Mix"];
+		let hero = [
+			{id: 1, name: "Sprite"},
+			{id: 2, name: "X"},
+			{id: 3, name: "Net"},
+			{id: 4, name: "Mix"}
+			];
 		//ng.inMemoryWebApi.InMemoryDbService;
 		return hero;
 	};
