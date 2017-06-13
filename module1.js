@@ -374,8 +374,7 @@
 			{id: 4, name: "Mix"}
 			];
 		//return ng.inMemoryWebApi.InMemoryDbService;
-		return hero;
-
+		//return hero;
 	}
 
 	InMemHeroService.prototype.lst = function () {
