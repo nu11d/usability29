@@ -367,13 +367,16 @@
 	let nService = function () {};
 
 	let InMemHeroService = function () {
-		this.heroes = ["Sprite","X","Net","Mix"];
+		let heroes = [
+      {id: 1, name: "Sprite"},
+      {id: 2, name: "X"},
+      {id: 3, name: "Net"},
+      {id: 4, name: "Mix"}
+    ];
+		this.heroes = heroes;
 	};
 
 	InMemHeroService.prototype.lst = function () {
-		let http = new ng.http.Http;
-		//let name = ["Sprite","X","Net","Mix"];
-		//return http.Http.get('./heroes.json');
 		return this.heroes;
 	}
 
