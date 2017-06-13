@@ -373,14 +373,10 @@
 			{id: 3, name: "Net"},
 			{id: 4, name: "Mix"}
 			];
-<<<<<<< HEAD
 		//return ng.inMemoryWebApi.InMemoryDbService;
 		return hero;
-=======
-		return ng.inMemoryWebApi.InMemoryDbService;
-		//return hero;
->>>>>>> parent of 888ad46... let InMemHeroService = function () {
-	};
+
+	}
 
 	InMemHeroService.prototype.lst = function () {
 		let name = ["Sprite","X","Net","Mix"];
