@@ -366,13 +366,15 @@
 
 	let nService = function () {};
 
-	let InMemHeroService = function () {};
+	let InMemHeroService = function () {
+		this.heroes = ["Sprite","X","Net","Mix"];
+	};
 
 	InMemHeroService.prototype.lst = function () {
 		let http = new ng.http.Http;
-		let name = ["Sprite","X","Net","Mix"];
+		//let name = ["Sprite","X","Net","Mix"];
 		//return http.Http.get('./heroes.json');
-		return http;
+		return this.heroes;
 	}
 
 	
