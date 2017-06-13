@@ -23,7 +23,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',  
       template: ''+
-      '<button (click)="tingle()">poptingle</button>'+  
+      '<button (click)="dotingle()">poptingle</button>'+  
       '<ng-content select="ng-container[role=footer]"></ng-content>'+  
       '<ng-content></ng-content>'+  
       '<ng-content select="ng-container[role=header]"></ng-content>'+ 
@@ -82,7 +82,7 @@
         });
 
       },
-      tingle: function() {
+      dotingle: function() {
         //this.tingle.open();
         window.alert("tingle");
       }
