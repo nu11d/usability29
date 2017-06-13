@@ -25,7 +25,8 @@
       template: ''+  
       '<ng-content select="ng-container[role=footer]"></ng-content>'+  
       '<ng-content></ng-content>'+  
-      '<ng-content select="ng-container[role=header]"></ng-content>'+  
+      '<ng-content select="ng-container[role=header]"></ng-content>'+ 
+      '<button on-click="tingle()">pop</button>'+ 
       'tpl-2b'
     }).Class({  
       constructor: [function() {  
@@ -80,8 +81,9 @@
           });
         });
 
+      },
+      tingle: function() {
         this.tingle.open();
-
       }
     });
     let MnComponent = ng.core.Component({  
