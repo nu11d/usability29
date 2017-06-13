@@ -33,14 +33,15 @@
           content: ''+
             '<div class="dropper-form aligned">'+
               '<div class="dropper-form-controls">'+
-                '<button type="submit" class="dropper-button primary button-purple">Submit</button>'+
+                '<button type="submit" class="dropper-button primary button-purple">ボータン</button>'+
               '</div>'+
             '</div>',
           labelOk: '続く',
-          labelCancel: 'No',
+          labelCancel: '閉じる',
+          flagCloseByOverlay: false,
           onSubmit: function() {
             popupS.modal({
-              content: 'you hit 続く!'
+              content: '続く!'
             });
           },
           onClose: function(val) {
