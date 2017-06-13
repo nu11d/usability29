@@ -367,14 +367,7 @@
 	let nService = function () {};
 
 	let InMemHeroService = function () {
-		let hero = [
-			{id: 1, name: "Sprite"},
-			{id: 2, name: "X"},
-			{id: 3, name: "Net"},
-			{id: 4, name: "Mix"}
-			];
-		return ng.inMemoryWebApi.InMemoryDbService;
-		//return hero;
+
 	};
 
 	InMemHeroService.prototype.lst = function () {
