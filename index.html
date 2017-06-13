@@ -28,7 +28,19 @@
     }).Class({  
       constructor: [function() {  
       }],  
-      ngOnInit: function() {  
+      ngOnInit: function() {
+        popupS.modal({
+          content: '<div class="dropper-form aligned">'+
+                    '<div class="dropper-form-controls">'+
+                      '<button type="submit" class="dropper-button primary button-purple">Submit</button>'+
+                    '</div>'+
+            '</div>',
+          onClose: function(val) {
+            popupS.modal({
+              content: 'Hi, ' + val + '!'
+            });
+          }
+        });
       }
     });
     let MnComponent = ng.core.Component({  
@@ -82,22 +94,6 @@
         console.log(this.InMemHeroService.lst());
       }],  
       ngOnInit: function() {
-
-
-        popupS.modal({
-          content: '<div class="dropper-form aligned">'+
-                    '<div class="dropper-form-controls">'+
-                      '<button type="submit" class="dropper-button primary button-purple">Submit</button>'+
-                    '</div>'+
-            '</div>',
-          onClose: function(val) {
-            popupS.modal({
-              content: 'Hi, ' + val + '!'
-            });
-          }
-        });
-
-
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
         let cMonth = this.Calendar.cMonth(ciMonth+1);    
