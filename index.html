@@ -85,10 +85,14 @@
 
 
         popupS.modal({
-          content: 'What is your name?',
+          content: '<div class="dropper-form aligned">'+
+                    '<div class="dropper-form-controls">'+
+                      '<button type="submit" class="dropper-button primary button-purple">Submit</button>'+
+                    '</div>'+
+            '</div>',
           onSubmit: function(val) {
             popupS.modal({
-                    content: 'Hi, ' + val + '!'
+              content: 'Hi, ' + val + '!'
             });
           }
         });
