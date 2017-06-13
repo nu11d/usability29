@@ -371,7 +371,6 @@
 	};
 
 	InMemHeroService.prototype.lst = function () {
-		console.log(ng.inMemoryWebApi.InMemoryWebApiModule.InMemoryDbService);
 		let hero = ["Sprite","X","Net","Mix"];
 		return hero;
 	}
