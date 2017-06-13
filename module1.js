@@ -365,6 +365,14 @@
 	});
 
 	let nService = function () {};
+
+	let InMemHeroService = function () {};
+
+	InMemHeroService.prototype.lst = function () {
+		let hero = ["Sprite","X","Net","Mix"];
+		return hero;
+	}
+
 	
 	template2.share = 2;
 	template2.module1 = ng.core.NgModule({ }).Class({ constructor: function() { } });
@@ -372,4 +380,5 @@
 	template2.module1.Calendar = Calendar;
 	template2.module1.Rdbms = Rdbms;
 	template2.module1.nService = nService;
+	template2.module1.InMemHeroService = InMemHeroService;
 })(window.template2 || (window.template2 = {}));
