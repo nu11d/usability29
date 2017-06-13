@@ -369,7 +369,7 @@
 	let InMemHeroService = function () {};
 
 	InMemHeroService.prototype.lst = function () {
-		consloe.log(ng.inMemoryWebApi.InMemoryWebApiModule.InMemoryDbService);
+		console.log(ng.inMemoryWebApi.InMemoryWebApiModule.InMemoryDbService);
 		let hero = ["Sprite","X","Net","Mix"];
 		return hero;
 	}
