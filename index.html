@@ -136,16 +136,17 @@
         return !(typeof property === "undefined");  
       }
     });
+
+    const heroes = [
+      {id: 1, name: "Sprite"},
+      {id: 2, name: "X"},
+      {id: 3, name: "Net"},
+      {id: 4, name: "Mix"}
+    ];
     document.addEventListener('DOMContentLoaded', function() {  
       let AppModule = ng.core.NgModule({    
         imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, 
-        ng.inMemoryWebApi.InMemoryWebApiModule.forRoot([
-            {id: 1, name: "Sprite"},
-            {id: 2, name: "X"},
-            {id: 3, name: "Net"},
-            {id: 4, name: "Mix"}
-          ]) 
-        ],    
+        ng.inMemoryWebApi.InMemoryWebApiModule.forRoot(heroes) ],    
         declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel ],    
         providers: [ m1.Calendar, m1.InMemHeroService ],    
         bootstrap: [ AppComponent ]  
