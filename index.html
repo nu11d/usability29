@@ -73,10 +73,15 @@
               '</div>',
             labelOk: '続く②',
             labelCancel: '閉じ②',
+            flagCloseByEsc: true,
             flagCloseByOverlay: false,
+            flagShowCloseBtn: false,
             onSubmit: function() {
               popupS.modal({
-                content: '完了!'
+                content: '完了!',
+                flagCloseByEsc: true,
+                flagCloseByOverlay: false,          
+                flagShowCloseBtn: false
               });
             },
             onClose: function(val) {
