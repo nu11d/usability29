@@ -37,7 +37,6 @@
             footer: true,
             stickyFooter: false,
             closeMethods: ['escape'],
-            closeLabel: "閉じ",
             cssClass: ['custom-class-1', 'custom-class-2'],
             onOpen: function() {
                 console.log('modal open');
@@ -72,12 +71,12 @@
                   '<button type="submit" class="dropper-button primary button-purple">ボータン</button>'+
                 '</div>'+
               '</div>',
-            labelOk: '続く',
-            labelCancel: '閉じる',
+            labelOk: '続く②',
+            labelCancel: '閉じ②',
             flagCloseByOverlay: false,
             onSubmit: function() {
               popupS.modal({
-                content: '続く!'
+                content: '完了!'
               });
             },
             onClose: function(val) {
