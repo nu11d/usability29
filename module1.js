@@ -367,7 +367,6 @@
 	let nService = function () {};
 
 	let InMemHeroService = function () {
-<<<<<<< HEAD
 		let hero = [
 			{id: 1, name: "Sprite"},
 			{id: 2, name: "X"},
@@ -376,9 +375,6 @@
 			];
 		//return ng.inMemoryWebApi.InMemoryDbService;
 		return hero;
-=======
-
->>>>>>> parent of aa6e8c8... template2.module1.hero = hero;
 	};
 
 	InMemHeroService.prototype.lst = function () {
