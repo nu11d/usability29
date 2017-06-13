@@ -136,7 +136,7 @@
     });
     document.addEventListener('DOMContentLoaded', function() {  
       let AppModule = ng.core.NgModule({    
-        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.inMemoryWebApi.InMemoryWebApiModule ],    
+        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.inMemoryWebApi.InMemoryWebApiModule.forRoot(m1.InMemHeroService) ],    
         declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel ],    
         providers: [ m1.Calendar ],    
         bootstrap: [ AppComponent ]  
