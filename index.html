@@ -11,87 +11,21 @@
 <script src="//unpkg.com/@angular/forms/bundles/forms.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
-
-<link rel="stylesheet" href="./tingle.css">
-<link rel="stylesheet" href="./popupS.css">
-<script src="./tingle.js"></script>
-<script src="./popupS.js"></script>
 <script src="./common.js"></script>
 <script src="./module1.js"></script>
 <script>(function(template2){
     let m1 =  template2.module1;
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',  
-      template: ''+
-      '<button (click)="dotingle()">poptingle</button>'+  
+      template: ''+  
       '<ng-content select="ng-container[role=footer]"></ng-content>'+  
       '<ng-content></ng-content>'+  
-      '<ng-content select="ng-container[role=header]"></ng-content>'+ 
+      '<ng-content select="ng-container[role=header]"></ng-content>'+  
       'tpl-2b'
     }).Class({  
       constructor: [function() {  
       }],  
-      ngOnInit: function() {
-
-        let this2 = this;
-        // instanciate new modal
-        this.tingle = new tingle.modal({
-            footer: true,
-            stickyFooter: false,
-            closeMethods: ['escape'],
-            cssClass: ['custom-class-1', 'custom-class-2'],
-            onOpen: function() {
-                console.log('modal open');
-            },
-            onClose: function() {
-                console.log('modal closed');
-            },
-            beforeClose: function() {
-                // here's goes some logic
-                // e.g. save content before closing the modal
-                return true; // close the modal
-            }
-        });
-
-        // set content
-        this.tingle.setContent('<h1>here\'s some content</h1>'+'Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'+
-                'Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'+
-                'Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'+
-                'Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'+
-                'Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'+
-                'Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'+
-                'Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'+
-                'Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'
-                );
-
-        // add a button
-        this.tingle.addFooterBtn('閉じ①', 'tingle-btn tingle-btn--primary', function() {
-          // here goes some logic
-          this2.tingle.close();
-        });
-
-        // add another button
-        this.tingle.addFooterBtn('続く①', 'tingle-btn tingle-btn--danger', function() {
-          // here goes some logic
-          this2.tingle.close();
-          popupS.confirm({
-            content: ''+
-              '<div class="dropper-form aligned">'+
-                '<div class="dropper-form-controls">'+
-                  '<button type="submit" class="dropper-button primary button-purple">ボタン</button>'+
-                '</div>'+
-              '</div>',
-            labelOk: '続く②',
-            labelCancel: '閉じ②',
-            onSubmit: function() {
-              this2.tingle.open();
-            }
-          });
-        });
-
-      },
-      dotingle: function() {
-        this.tingle.open();
+      ngOnInit: function() {  
       }
     });
     let MnComponent = ng.core.Component({  
@@ -144,7 +78,7 @@
         console.log(this.InMemHeroService);
         console.log(this.InMemHeroService.lst());
       }],  
-      ngOnInit: function() {
+      ngOnInit: function() {    
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
         let cMonth = this.Calendar.cMonth(ciMonth+1);    
@@ -171,7 +105,6 @@
      
       }
     });
-
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',  
       template: ''+  
@@ -183,42 +116,30 @@
       'This is my footer content.'+  
       '</ng-container>'+  
       '<div class="mdl-grid mdl-grid--no-spacing">'+  
-      '<mn (click)="dopopupS()" [relate]="-1">'+  
+      '<mn [relate]="-1">'+  
       '<ng-container role="header">'+  
       'This is my header content.'+     
       '</ng-container>'+  
-      '</mn>'+
+      '</mn><mn></mn><mn [relate]="1"></mn>'+  
       '</div>'+  
       '</tpl-2b>'+  
       'demo-app'
     }).Class({  
-      constructor: [function() {
+      constructor: [function() {  
       }],  
-      ngOnInit: function() { 
+      ngOnInit: function() {  
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
       },  
       isset: function(property) {    
         return !(typeof property === "undefined");  
-      },
-      dopopupS: function() {
-        let this2 = this;
-        popupS.confirm({
-          appendLocation: document.getElementsByTagName("demo-app")[0],
-          content: {tag : 'mn#id.class',html: '<h1>Hello</h1>'},
-          labelOk: '続く②',
-          labelCancel: '閉じ②',
-          onSubmit: function() {
-            //this2.tingle.open();
-          }
-        });
       }
     });
 
     document.addEventListener('DOMContentLoaded', function() {  
       let AppModule = ng.core.NgModule({    
-        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.forms.FormsModule ],    
+        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule ],    
         declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel ],    
         providers: [ m1.Calendar, m1.InMemHeroService ],    
         bootstrap: [ AppComponent ]  
