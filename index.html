@@ -92,7 +92,7 @@
       '</div>'+  
       'mn'
     }).Class({   
-      constructor: [m1.Calendar, m1.InMemHeroService, ng.material.material.MdDialogRef, function(m1Calendar,m1InMemHeroService,mddialogref) {    
+      constructor: [m1.Calendar, m1.InMemHeroService, ng.material.MdDialogRef, function(m1Calendar,m1InMemHeroService,mddialogref) {    
         this.Calendar = m1Calendar;
         this.InMemHeroService =  m1InMemHeroService;
         this.MdDialogRef = mddialogref;
@@ -175,7 +175,7 @@
       let AppModule = ng.core.NgModule({    
         imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.platformBrowser.animations.BrowserAnimationsModule, ng.material.MdDialogModule ],    
         declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel ],    
-        providers: [ m1.Calendar, m1.InMemHeroService ],
+        providers: [ m1.Calendar, m1.InMemHeroService, ng.material.MdDialogRef ],
         entryComponents: [ MnComponent ],   
         bootstrap: [ AppComponent ]  
       }).Class({    
