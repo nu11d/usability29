@@ -194,10 +194,11 @@
       constructor: [function() {  
       }],  
       ngOnInit: function() {
+        let this2 = this;
         popupS.confirm({
-            content: ''+
+            content: ''+{tag : 'mn#id.class'}+
               '<div class="dropper-form aligned">'+
-                '<mn></mn><mn [relate]="1"></mn>'+
+                '<mn [relate]="1"></mn>'+
                 '<div class="dropper-form-controls">'+
                   '<button type="submit" class="dropper-button primary button-purple">ボタン</button>'+
                 '</div>'+
