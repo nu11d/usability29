@@ -45,7 +45,7 @@
       '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+    
       '<div class="mdl-grid mdl-grid--no-spacing">'+
       '<div class="mdl-cell mdl-cell--12-col">'+  
-      '<strong>{{cnMonth}}月</strong>'+  
+      '<strong (click)="custombox()">{{cnMonth}}月</strong>'+  
       '<ng-content select="ng-container[role=header]"></ng-content>'+
       '</div>'+
       '<template ngFor let-row [ngForOf]="[0,1,2,3,4,5]">'+  
@@ -111,8 +111,13 @@
         let type = cell.type;    
         return (cell.value? cell.value +"("+this.Calendar.cDay()[type]+")" : "");  
       },  
-      ngAfterViewInit: function() {    
-     
+      custombox: function() {    
+        new Custombox.modal({
+          content: {
+            effect: 'fadein',
+            target: '#custombox'
+          }
+        }).open();
       }
     });
     let AppComponent = ng.core.Component({  
