@@ -37,7 +37,7 @@
       }],  
       ngOnInit: function() {  
       },
-      close: function() {
+      customboxclose: function() {
         window.alert("close");
       }
     });
@@ -132,7 +132,7 @@
       '</ng-container>'+  
 			'<ng-container role="footer">'+  
       'This is my footer content.'+ 
-      '<button (click)="close()">close</button>'+ 
+      '<button (click)="customboxclose()">close</button>'+ 
       '</ng-container>'+  
       '<div class="mdl-grid mdl-grid--no-spacing">'+  
       '<mn [relate]="-1">'+  
