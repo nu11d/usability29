@@ -151,8 +151,8 @@
         this.MdDialog = mddialog;
       }],  
       ngOnInit: function() {
+        this.MdDialog.open("<h1>hello</h1>");
         this.customboxopen();
-        console.log("my",this.MdDialog);
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
