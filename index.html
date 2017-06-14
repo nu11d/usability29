@@ -186,14 +186,15 @@
       '<ng-container role="header">'+  
       'This is my header content.'+     
       '</ng-container>'+  
-      '</mn>'+  
+      '</mn>'+
+      '{{popupS}}'+  
       '</div>'+  
       '</tpl-2b>'+  
       'demo-app'
     }).Class({  
       constructor: [function() {
         let this2 = this;
-        popupS.confirm({
+        this.popupS = new popupS.confirm({
           appendLocation: document.getElementsByTagName("demo-app")[0],
           content: {tag : 'mn#id.class',html: '<h1>Hello</h1>'},
           labelOk: '続く②',
