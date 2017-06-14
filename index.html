@@ -147,11 +147,12 @@
       '</tpl-2b>'+  
       'demo-app'
     }).Class({  
-      constructor: [function() {  
+      constructor: [ng.material.MdDialog, function(mddialog) {
+        this.MdDialog = mddialog;
       }],  
       ngOnInit: function() {
         this.customboxopen();
-        console.log(ng.material.MdDialog);
+        console.log("my",this.MdDialog);
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
