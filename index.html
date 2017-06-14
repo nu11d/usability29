@@ -155,12 +155,13 @@
       customboxopen: function() {
         this.custombox = new Custombox.modal({
           content: {
-            target: '#custombox'
+            target: '#custombox',
+            id: 'close1'
           }
         }).open();
       },
       customboxclose: function() {
-        Custombox.modal.close();
+        Custombox.modal.close('close1');
       }
     });
 
