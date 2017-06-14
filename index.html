@@ -39,9 +39,7 @@
       '<ng-content select="ng-container[role=header]"></ng-content>'+  
       'tpl-2b'
     }).Class({  
-      constructor: [ng.material.MdDialogRef,function(mddialogref) {
-        this.MdDialogRef = mddialogref;
-        console.log(this.MdDialogRef); 
+      constructor: [function() {  
       }],  
       ngOnInit: function() {  
       }
@@ -54,7 +52,10 @@
       '<div class="mdl-grid mdl-grid--no-spacing">'+
       '<div class="mdl-cell mdl-cell--12-col">'+  
       '<strong (click)="custombox()">{{cnMonth}}月</strong>'+
-      
+      '<div md-dialog-actions>'+
+        '<button md-button md-dialog-close="Option 1">Option 1</button>'+
+        '<button md-button md-dialog-close="Option 2">Option 2</button>'+
+      '</div>'+
       '<ng-content select="ng-container[role=header]"></ng-content>'+
       '</div>'+
       '<template ngFor let-row [ngForOf]="[0,1,2,3,4,5]">'+  
@@ -90,12 +91,14 @@
       '</div>'+  
       '</div>'+  
       'mn'
-    }).Class({  
-      constructor: [m1.Calendar, m1.InMemHeroService, function(m1Calendar,m1InMemHeroService) {    
+    }).Class({   
+      constructor: [m1.Calendar, m1.InMemHeroService, ng.material.MdDialogRef, function(m1Calendar,m1InMemHeroService,mddialogref) {    
         this.Calendar = m1Calendar;
         this.InMemHeroService =  m1InMemHeroService;
+        this.MdDialogRef = mddialogref;
         console.log(this.InMemHeroService);
         console.log(this.InMemHeroService.lst());
+        console.log(this.MdDialogRef);
       }],  
       ngOnInit: function() {    
         let cYear = 2017;    
