@@ -51,7 +51,11 @@
       '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+    
       '<div class="mdl-grid mdl-grid--no-spacing">'+
       '<div class="mdl-cell mdl-cell--12-col">'+  
-      '<strong (click)="custombox()">{{cnMonth}}月</strong>'+  
+      '<strong (click)="custombox()">{{cnMonth}}月</strong>'+
+      '<div md-dialog-actions>'+
+        '<button md-button md-dialog-close="Option 1">Option 1</button>'+
+        '<button md-button md-dialog-close="Option 2">Option 2</button>'+
+      '</div>'+
       '<ng-content select="ng-container[role=header]"></ng-content>'+
       '</div>'+
       '<template ngFor let-row [ngForOf]="[0,1,2,3,4,5]">'+  
