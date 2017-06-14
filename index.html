@@ -13,6 +13,12 @@
 <script src="//unpkg.com/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
 
 <link rel="stylesheet" href="./custombox.min.css">
+<style>
+  .custombox-modal {
+    display: none;
+  }
+</style>
+<script src="./custombox.legacy.min.js"></script>
 <script src="./custombox.min.js"></script>
 <script src="./common.js"></script>
 <script src="./module1.js"></script>
@@ -123,7 +129,7 @@
       '<ng-container role="header">'+  
       'This is my header content.'+     
       '</ng-container>'+  
-      '</mn><mn id="custombox"></mn><mn [relate]="1"></mn>'+  
+      '</mn><mn id="custombox" class="custombox-modal"></mn><mn [relate]="1"></mn>'+  
       '</div>'+  
       '</tpl-2b>'+  
       'demo-app'
