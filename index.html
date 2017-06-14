@@ -12,6 +12,10 @@
 <script src="//unpkg.com/@angular/forms/bundles/forms.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
+
+<script src="//unpkg.com/@angular/animations/bundles/animations.umd.min.js"></script>
+<script src="//unpkg.com/@angular/animations/bundles/animations-browser.umd.js"></script>
+<script src="//unpkg.com/@angular/platform-browser/bundles/platform-browser-animations.umd.js"></script>
 <script src="//unpkg.com/@angular/material/bundles/material.umd.js"></script>
 
 <link rel="stylesheet" href="./custombox.min.css">
@@ -169,7 +173,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {  
       let AppModule = ng.core.NgModule({    
-        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.material.material.MdDialogModule ],    
+        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.platformBrowser.animations.BrowserAnimationsModule, ng.material.material.MdDialogModule ],    
         declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel ],    
         providers: [ m1.Calendar, m1.InMemHeroService ],    
         bootstrap: [ AppComponent ]  
