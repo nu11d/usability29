@@ -36,9 +36,6 @@
       constructor: [function() {  
       }],  
       ngOnInit: function() {  
-      },
-      customboxclose: function() {
-        window.alert("close");
       }
     });
     let MnComponent = ng.core.Component({  
@@ -121,6 +118,9 @@
             target: '#custombox'
           }
         }).open();
+      },
+      customboxclose: function() {
+        window.alert("close");
       }
     });
     let AppComponent = ng.core.Component({  
