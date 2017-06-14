@@ -88,11 +88,12 @@
       '</div>'+  
       'mn'
     }).Class({  
-      constructor: [m1.Calendar, m1.InMemHeroService, function(m1Calendar,m1InMemHeroService) {    
+      constructor: [m1.Calendar, m1.InMemHeroService, ng.material.MdDialog, function(m1Calendar,m1InMemHeroService,ngMaterialMdDialog) {    
         this.Calendar = m1Calendar;
         this.InMemHeroService =  m1InMemHeroService;
-        console.log(this.InMemHeroService);
+        this.MdDialog = ngMaterialMdDialog;
         console.log(this.InMemHeroService.lst());
+        console.log(this.MdDialog);
       }],  
       ngOnInit: function() {    
         let cYear = 2017;    
