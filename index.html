@@ -191,19 +191,19 @@
       '</tpl-2b>'+  
       'demo-app'
     }).Class({  
-      constructor: [function() {  
-      }],  
-      ngOnInit: function() {
+      constructor: [function() {
         let this2 = this;
         popupS.confirm({
-            appendLocation: document.getElementsByTagName("demo-app")[0],
-            content: {tag : 'mn#id.class',html: '<h1>Hello</h1>'},
-            labelOk: '続く②',
-            labelCancel: '閉じ②',
-            onSubmit: function() {
-              this2.tingle.open();
-            }
-          });  
+          appendLocation: document.getElementsByTagName("demo-app")[0],
+          content: {tag : 'mn#id.class',html: '<h1>Hello</h1>'},
+          labelOk: '続く②',
+          labelCancel: '閉じ②',
+          onSubmit: function() {
+            //this2.tingle.open();
+          }
+        });
+      }],  
+      ngOnInit: function() { 
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
