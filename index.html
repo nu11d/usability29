@@ -36,6 +36,9 @@
       constructor: [function() {  
       }],  
       ngOnInit: function() {  
+      },
+      close: function() {
+        window.alert("close");
       }
     });
     let MnComponent = ng.core.Component({  
@@ -123,19 +126,20 @@
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',  
       template: ''+  
-      '<tpl-2b>'+  
+      '<tpl-2b id="custombox" class="custombox-reference">'+  
       '<ng-container role="header">'+  
       'This is my header content.'+  
       '</ng-container>'+  
 			'<ng-container role="footer">'+  
-      'This is my footer content.'+  
+      'This is my footer content.'+ 
+      '<button (click)="close()">close</button>'+ 
       '</ng-container>'+  
       '<div class="mdl-grid mdl-grid--no-spacing">'+  
       '<mn [relate]="-1">'+  
       '<ng-container role="header">'+  
       'This is my header content.'+     
       '</ng-container>'+  
-      '</mn><mn id="custombox" class="custombox-reference"></mn><mn [relate]="1"></mn>'+  
+      '</mn><mn></mn><mn [relate]="1"></mn>'+  
       '</div>'+  
       '</tpl-2b>'+  
       'demo-app'
@@ -145,7 +149,6 @@
       ngOnInit: function() {
         new Custombox.modal({
           content: {
-            fullscreen: true,
             target: '#custombox'
           }
         }).open();  
