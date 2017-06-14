@@ -144,11 +144,7 @@
       constructor: [function() {  
       }],  
       ngOnInit: function() {
-        new Custombox.modal({
-          content: {
-            target: '#custombox'
-          }
-        }).open();  
+        this.customboxopen();
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
@@ -156,8 +152,15 @@
       isset: function(property) {    
         return !(typeof property === "undefined");  
       },
+      customboxopen: function() {
+        this.custombox = new Custombox.modal({
+          content: {
+            target: '#custombox'
+          }
+        }).open();
+      },
       customboxclose: function() {
-        window.alert("close");
+        this.custombox.close();
       }
     });
 
