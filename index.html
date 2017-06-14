@@ -175,7 +175,7 @@
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',  
       template: ''+  
-      '<tpl-2b (load)="dopopupS()">'+  
+      '<tpl-2b>'+  
       '<ng-container role="header">'+  
       'This is my header content.'+  
       '</ng-container>'+  
@@ -183,7 +183,7 @@
       'This is my footer content.'+  
       '</ng-container>'+  
       '<div class="mdl-grid mdl-grid--no-spacing">'+  
-      '<mn [relate]="-1">'+  
+      '<mn (click)="dopopupS()" [relate]="-1">'+  
       '<ng-container role="header">'+  
       'This is my header content.'+     
       '</ng-container>'+  
