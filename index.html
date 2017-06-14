@@ -11,6 +11,9 @@
 <script src="//unpkg.com/@angular/forms/bundles/forms.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser/bundles/platform-browser.umd.js"></script>
 <script src="//unpkg.com/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
+
+<link rel="stylesheet" href="./custombox.min.css">
+<script src="./custombox.min.js"></script>
 <script src="./common.js"></script>
 <script src="./module1.js"></script>
 <script>(function(template2){
@@ -120,14 +123,20 @@
       '<ng-container role="header">'+  
       'This is my header content.'+     
       '</ng-container>'+  
-      '</mn><mn></mn><mn [relate]="1"></mn>'+  
+      '</mn><mn id="custombox"></mn><mn [relate]="1"></mn>'+  
       '</div>'+  
       '</tpl-2b>'+  
       'demo-app'
     }).Class({  
       constructor: [function() {  
       }],  
-      ngOnInit: function() {  
+      ngOnInit: function() {
+        new Custombox.modal({
+          content: {
+            effect: 'fadein',
+            target: '#custombox'
+          }
+        }).open();  
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
