@@ -18,7 +18,8 @@
 <script src="//unpkg.com/@angular/platform-browser/bundles/platform-browser-animations.umd.js"></script>
 <script src="//unpkg.com/@angular/material/bundles/material.umd.js"></script>
 
-<link rel="stylesheet" href="./custombox.min.css">
+<link href="//unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+<link href="./custombox.min.css" rel="stylesheet">
 <style>
   /* reset margin of body*/
   html body {
@@ -150,7 +151,7 @@
       }],  
       ngOnInit: function() {
         this.customboxopen();
-        console.log(ng.material.MdDialogModule);
+        console.log(ng.material.MdDialog);
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
