@@ -152,21 +152,12 @@
       }],  
       ngOnInit: function() {
         this.MdDialog.open(MnComponent);
-        this.customboxopen();
       },  
       extend: function(event) {    
         this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
       },  
       isset: function(property) {    
         return !(typeof property === "undefined");  
-      },
-      customboxopen: function() {
-        this.custombox = new Custombox.modal({
-          content: {
-            target: '#custombox',
-            id: 'close1'
-          }
-        }).open();
       },
       customboxclose: function() {
         Custombox.modal.close();
