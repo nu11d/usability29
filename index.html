@@ -172,21 +172,10 @@
       }
     });
 
-    let this2 = this;
-    let dopopupS = popupS.confirm({
-      
-      content: {tag : 'mn#id.class',html: '<h1>Hello</h1>'},
-      labelOk: '続く②',
-      labelCancel: '閉じ②',
-      onSubmit: function() {
-        //this2.tingle.open();
-      }
-    });
-
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',  
       template: ''+  
-      '<tpl-2b>'+  
+      '<tpl-2b (load)="dopopupS()">'+  
       '<ng-container role="header">'+  
       'This is my header content.'+  
       '</ng-container>'+  
@@ -199,7 +188,6 @@
       'This is my header content.'+     
       '</ng-container>'+  
       '</mn>'+
-      dopopupS+
       '</div>'+  
       '</tpl-2b>'+  
       'demo-app'
@@ -213,6 +201,17 @@
       },  
       isset: function(property) {    
         return !(typeof property === "undefined");  
+      },
+      dopopupS: function() {
+        let this2 = this;
+        popupS.confirm({
+          content: {tag : 'mn#id.class',html: '<h1>Hello</h1>'},
+          labelOk: '続く②',
+          labelCancel: '閉じ②',
+          onSubmit: function() {
+            //this2.tingle.open();
+          }
+        });
       }
     });
 
