@@ -101,7 +101,7 @@
       },
       ngOnInit: [window.global.mddialogRef,function(wgMdDialogRef) {
         this.MdDialog = wgMdDialogRef;
-        console.log(this.MdDialog);
+        console.log(this.MdDialog,window.global.mddialogRef);
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
         let cMonth = this.Calendar.cMonth(ciMonth+1);    
