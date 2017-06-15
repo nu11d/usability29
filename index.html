@@ -25,8 +25,9 @@
     let m1 =  template2.module1;
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
+      providers: [ng.material.MdDialog],
       inputs: ['tmp'],  
-      template: '4'+
+      template: '5'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
