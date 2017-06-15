@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '3'+
+      template: '4'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -85,7 +85,7 @@
       '</div>'+  
       '</div>'+  
       '<span md-dialog-close (click)="mddialogclose()">mn</span>'+
-      '<button [md-dialog-close]="true">Yes</button>'+
+      '<button md-dialog-close>Yes</button>'+
       '<button (click)="mddialogopen()">open</button>'
     }).Class({  
       constructor: [m1.Calendar, m1.InMemHeroService, ng.material.MdDialog, function(m1Calendar,m1InMemHeroService,ngMaterialMdDialog) {    
