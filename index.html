@@ -39,6 +39,7 @@
     let MnComponent = ng.core.Component({  
       selector: 'mn',  
       inputs: ['relate'],
+      outputs: ['calout1'],
       providers: [ng.material.MdDialog],
       template: ''+  
       '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+    
@@ -87,6 +88,7 @@
         //this.MdDialogRef = wgMdDialogRef;
         //this.InMemHeroService =  m1InMemHeroService;
         this.MdDialog = ngMaterialMdDialog;
+        this.calout1 = new ng.core.EventEmitter();
         //console.log(this.InMemHeroService.lst());
       }],
       ngOnInit: function() {
@@ -117,9 +119,13 @@
         //this.MdDialog.closeAll();
         //window.global.mddialogRef.close();
         this.MdDialogRef.close();
+        this.calout1.emit("oh oh oh");
       },
       mddialogopen: function() {
         let mddialogRef = this.MdDialog.open(MnComponent);
+        mddialogRef.componentInstance.calout1.subscribe(function(calout1){
+					window.alert(calout1);
+				});
         window.global.mddialogRef = mddialogRef;
       }
     });
