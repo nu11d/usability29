@@ -43,7 +43,7 @@
     let MnComponent = ng.core.Component({  
       selector: 'mn',  
       inputs: ['relate'],
-      outputs: ['calout1'],
+      outputs: ['calout1','calout2'],
       providers: [ng.material.MdDialog],
       template: ''+  
       '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+    
@@ -93,10 +93,11 @@
         //this.InMemHeroService =  m1InMemHeroService;
         this.MdDialog = ngMaterialMdDialog;
         this.calout1 = new ng.core.EventEmitter();
+        this.calout2 = new ng.core.EventEmitter();
         //console.log(this.InMemHeroService.lst());
       }],
       ngOnInit: function() {
-        this.MdDialogRef = window.global.mddialogRef
+        this.MdDialogRef = window.global.mddialogRef;
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
         let cMonth = this.Calendar.cMonth(ciMonth+1);    
@@ -122,13 +123,16 @@
       mddialogclose: function() {
         //this.MdDialog.closeAll();
         //window.global.mddialogRef.close();
-        this.MdDialogRef.close();
+        this.MdDialogRef.close("mddialogclose");
+        this.MdDialogRef.afterClosed().subscribe(function(result){
+          window.alert("result:",result);
+        });
         this.calout1.emit("oh oh oh");
       },
       mddialogopen: function() {
         let mddialogRef = this.MdDialog.open(MnComponent);
         mddialogRef.componentInstance.calout1.subscribe(function(calout1){
-					window.global.tmp.push(calout1);
+          this.calout2.emit(calout1);
 				});
         window.global.mddialogRef = mddialogRef;
       }
@@ -172,6 +176,9 @@
         this.mddialogRef = this.MdDialog.open(MnComponent);
         this.tmp.push("helloo..");
         window.global.mddialogRef = this.mddialogRef;
+        this.mddialogRef.componentInstance.calout1.subscribe(function(calout1){
+          window.alert(calout1);
+				});
       }
     });
 
