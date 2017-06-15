@@ -123,22 +123,20 @@
       mddialogclose: function() {
         //this.MdDialog.closeAll();
         //window.global.mddialogRef.close();
-        this.MdDialogRef.close("close");
+        this.MdDialogRef.close("mddialogclose");
         this.MdDialogRef.afterClosed().subscribe(function(result){
-          window.alert("mn click:"+result);
+          window.alert("mddialogcloseaftercloseresult:"+result);
         });
         this.calout1.emit("oh oh oh");
       },
       mddialogopen: function() {
         let mddialogRef = this.MdDialog.open(MnComponent);
         mddialogRef.afterClosed().subscribe(function(result){
-          window.alert("esc / shade:"+result);
-          this.calout1.emit("calout1"+calout1);
-          this.calout2.emit("calout2"+calout1);
+          window.alert("mddialogopenaftercloseresult:"+result);
         });
         mddialogRef.componentInstance.calout1.subscribe(function(calout1){
-          //this.calout1.emit("calout1"+calout1);
-          //this.calout2.emit("calout2"+calout1);
+          this.calout1.emit("calout1"+calout1);
+          this.calout2.emit("calout2"+calout1);
 				});
         window.global.mddialogRef = mddialogRef;
       }
