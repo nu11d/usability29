@@ -130,12 +130,12 @@
         window.global.mddialogRef = mddialogRef;
       }
     });
-    window.global.tmp = ["globaltmp"];
+
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',  
       template: ''+
       '<button (click)="mddialogopen()">open</button>'+  
-      '<tpl-2b [tmp]="window.global.tmp">'+
+      '<tpl-2b [tmp]="AppComponent.tmp">'+
       '<ng-container role="header">'+  
       'This is my header content.'+  
       '</ng-container>'+  
@@ -154,6 +154,7 @@
     }).Class({  
       constructor: [ng.material.MdDialog, function(mddialog) {
         this.MdDialog = mddialog;
+        this.AppComponent.tmp = ["hello."];
       }],  
       ngOnInit: function() {
         
@@ -166,6 +167,7 @@
       },
       mddialogopen: function() {
         this.mddialogRef = this.MdDialog.open(MnComponent);
+        this.AppComponent.tmp.push("helloo..");
         window.global.mddialogRef = this.mddialogRef;
       }
     });
