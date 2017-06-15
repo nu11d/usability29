@@ -124,13 +124,13 @@
         //this.MdDialog.closeAll();
         //window.global.mddialogRef.close();
         this.MdDialogRef.close("mddialogclose");
-        this.MdDialogRef.afterClosed().subscribe(function(result){
-          window.alert("result:",result);
-        });
         this.calout1.emit("oh oh oh");
       },
       mddialogopen: function() {
         let mddialogRef = this.MdDialog.open(MnComponent);
+        mddialogRef.afterClosed().subscribe(function(result){
+          window.alert("result:",result);
+        });
         mddialogRef.componentInstance.calout1.subscribe(function(calout1){
           this.calout2.emit(calout1);
 				});
@@ -176,8 +176,14 @@
         this.mddialogRef = this.MdDialog.open(MnComponent);
         this.tmp.push("helloo..");
         window.global.mddialogRef = this.mddialogRef;
-        this.mddialogRef.componentInstance.calout1.subscribe(function(calout1){
-          window.alert(calout1);
+        this.mddialogRef.afterClosed().subscribe(function(result){
+          window.alert("firstresult:",result);
+        });
+        //this.mddialogRef.componentInstance.calout1.subscribe(function(calout1){
+          //window.alert("first",calout1);
+				//});
+        this.mddialogRef.componentInstance.calout2.subscribe(function(calout2){
+          window.alert("calout2",calout2);
 				});
       }
     });
