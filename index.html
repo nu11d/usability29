@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '2'+
+      template: '1'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -130,13 +130,14 @@
         this.calout1.emit("oh oh oh");
       },
       mddialogopen: function() {
+        let this2 = this;
         let mddialogRef = this.MdDialog.open(MnComponent);
         mddialogRef.afterClosed().subscribe(function(result){
           window.alert("mddialogopenaftercloseresult:"+result);
         });
         mddialogRef.componentInstance.calout1.subscribe(function(calout1){
-          this.calout1.emit("calout1"+calout1);
-          this.calout2.emit("calout2"+calout1);
+          this2.calout1.emit("calout1"+calout1);
+          this2.calout2.emit("calout2"+calout1);
 				});
         window.global.mddialogRef = mddialogRef;
       }
