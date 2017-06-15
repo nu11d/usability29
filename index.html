@@ -25,9 +25,8 @@
     let m1 =  template2.module1;
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
-      providers: [ng.material.MdDialog],
       inputs: ['tmp'],  
-      template: '5'+
+      template: '4'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -147,7 +146,6 @@
 
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',
-      providers: [ng.material.MdDialog],
       template: ''+
       '<button (click)="mddialogopen()">open</button>'+  
       '<tpl-2b [tmp]="tmp">'+
@@ -158,11 +156,11 @@
       'This is my footer content.'+
       '</ng-container>'+  
       '<div class="mdl-grid mdl-grid--no-spacing">'+  
-      '<mn [relate]="-1">'+  
+
       '<ng-container role="header">'+  
       'This is my header content.'+     
       '</ng-container>'+  
-      '</mn><mn></mn><mn [relate]="1"></mn>'+  
+
       '</div>'+  
       '</tpl-2b>'+
       'demo-app'
