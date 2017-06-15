@@ -88,8 +88,12 @@
         //this.MdDialog = ngMaterialMdDialog;
         //console.log(this.InMemHeroService.lst());
       }],
+      ngAfterViewInit: function() {
+        
+      },
       ngOnInit: function() {
         this.MdDialogRef = window.global.mddialogRef
+        console.log(this.MdDialogRef); //wgMdDialogRef    
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
         let cMonth = this.Calendar.cMonth(ciMonth+1);    
@@ -113,9 +117,10 @@
         return (cell.value? cell.value +"("+this.Calendar.cDay()[type]+")" : "");  
       },  
       mddialogclose: function() {
+        //MdDialog.close();
         //this.MdDialog.closeAll();
         //window.global.mddialogRef.close();
-        this.MdDialogRef.close();
+        //this.MdDialogRef.close();
       }
     });
     let AppComponent = ng.core.Component({  
