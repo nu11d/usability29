@@ -1,6 +1,5 @@
 <!DOCTYPE html><html><head>
 <title>index.html</title>
-<script src="./custombox.legacy.min.js"></script>
 <script src="//unpkg.com/core-js/client/shim.min.js"></script>
 <script src="//unpkg.com/zone.js@0.8.4?main=browser"></script>
 <script src="//unpkg.com/rxjs@5.0.1/bundles/Rx.js"></script>
@@ -19,14 +18,7 @@
 <script src="//unpkg.com/@angular/material/bundles/material.umd.js"></script>
 
 <link href="//unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
-<link href="./custombox.min.css" rel="stylesheet">
-<style>
-  /* reset margin of body*/
-  html body {
-    margin: 0;
-  }
-</style>
-<script src="./custombox.min.js"></script>
+
 <script src="./common.js"></script>
 <script src="./module1.js"></script>
 <script>(function(template2){
@@ -52,7 +44,7 @@
       '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+    
       '<div class="mdl-grid mdl-grid--no-spacing">'+
       '<div class="mdl-cell mdl-cell--12-col">'+  
-      '<strong (click)="custombox()">{{cnMonth}}月</strong>'+  
+      '<strong>{{cnMonth}}月</strong>'+  
       '<ng-content select="ng-container[role=header]"></ng-content>'+
       '</div>'+
       '<template ngFor let-row [ngForOf]="[0,1,2,3,4,5]">'+  
@@ -121,14 +113,6 @@
         let type = cell.type;    
         return (cell.value? cell.value +"("+this.Calendar.cDay()[type]+")" : "");  
       },  
-      custombox: function() {    
-        new Custombox.modal({
-          content: {
-            effect: 'fadein',
-            target: '#custombox'
-          }
-        }).open();
-      },
       mddialogclose: function() {
         //this.MdDialog.closeAll();
         //window.global.mddialogRef.close();
@@ -142,13 +126,12 @@
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',  
       template: ''+  
-      '<tpl-2b id="custombox" class="custombox-reference">'+  
+      '<tpl-2b>'+
       '<ng-container role="header">'+  
       'This is my header content.'+  
       '</ng-container>'+  
 			'<ng-container role="footer">'+  
-      'This is my footer content.'+ 
-      '<button (click)="customboxclose()">close</button>'+ 
+      'This is my footer content.'+
       '</ng-container>'+  
       '<div class="mdl-grid mdl-grid--no-spacing">'+  
       '<mn [relate]="-1">'+  
@@ -172,9 +155,6 @@
       },  
       isset: function(property) {    
         return !(typeof property === "undefined");  
-      },
-      customboxclose: function() {
-        Custombox.modal.close();
       },
       mddialogopen: function() {
         this.mddialogRef = this.MdDialog.open(MnComponent);
