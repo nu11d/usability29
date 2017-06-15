@@ -144,14 +144,15 @@
       '</ng-container>'+  
       '</mn><mn></mn><mn [relate]="1"></mn>'+  
       '</div>'+  
-      '</tpl-2b>'+  
+      '</tpl-2b>'+
+      '<button (click)="mddialogopen()">open</button>'+  
       'demo-app'
     }).Class({  
       constructor: [ng.material.MdDialog, function(mddialog) {
         this.MdDialog = mddialog;
       }],  
       ngOnInit: function() {
-        //this.MdDialog.open(MnComponent);
+        
       },  
       extend: function(event) {    
         //this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
@@ -161,6 +162,9 @@
       },
       customboxclose: function() {
         Custombox.modal.close();
+      },
+      mddialogopen: function() {
+        this.mddialogRef = this.MdDialog.open(MnComponent);
       }
     });
 
