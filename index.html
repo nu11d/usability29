@@ -131,6 +131,9 @@
       },
       mddialogopen: function() {
         let mddialogRef = this.MdDialog.open(MnComponent);
+        mddialogRef.afterClosed().subscribe(function(result){
+          window.alert("mddialogopenaftercloseresult:",result);
+        });
         mddialogRef.componentInstance.calout1.subscribe(function(calout1){
           this.calout2.emit("calout2",calout1);
 				});
