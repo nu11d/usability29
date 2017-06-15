@@ -94,8 +94,11 @@
         this.InMemHeroService =  m1InMemHeroService;
         this.MdDialog = ngMaterialMdDialog;
         //console.log(this.InMemHeroService.lst());
-        console.log(ng.material);
-      }],  
+        //console.log(ng.material);
+      }],
+      ngAfterViewInit: function() {
+        console.log(window.global.mddialogRef);
+      },
       ngOnInit: function() {    
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
@@ -171,6 +174,7 @@
       },
       mddialogopen: function() {
         this.mddialogRef = this.MdDialog.open(MnComponent);
+        window.global.mddialogRef = this.mddialogRef;
       }
     });
 
