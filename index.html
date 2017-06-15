@@ -79,14 +79,13 @@
       '</template>'+    
       '</div>'+  
       '</div>'+  
-      '<span md-dialog-close (click)="mddialogclose()">mn</span>'+
-      '<button (click)="mddialogopen()">open</button>'
+      '<span md-dialog-close (click)="mddialogclose()">mn</span>'
     }).Class({  
       constructor: [m1.Calendar, m1.InMemHeroService, ng.material.MdDialog, function(m1Calendar,m1InMemHeroService,ngMaterialMdDialog) {    
         this.Calendar = m1Calendar;
         //this.MdDialogRef = wgMdDialogRef;
         //this.InMemHeroService =  m1InMemHeroService;
-        this.MdDialog = ngMaterialMdDialog;
+        //this.MdDialog = ngMaterialMdDialog;
         //console.log(this.InMemHeroService.lst());
       }],
       ngOnInit: function() {
@@ -117,10 +116,6 @@
         //this.MdDialog.closeAll();
         //window.global.mddialogRef.close();
         this.MdDialogRef.close();
-      },
-      mddialogopen: function() {
-        let mddialogRef = this.MdDialog.open(MnComponent);
-        window.global.mddialogRef = mddialogRef;
       }
     });
     let AppComponent = ng.core.Component({  
