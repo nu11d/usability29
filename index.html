@@ -26,7 +26,10 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '0{{tmp}}2'+
+      template: '1{{tmp}}3'+
+      '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
+      '{{index}}.{{num}}'+
+      '</template>'+
       '<ng-content select="ng-container[role=footer]"></ng-content>'+  
       '<ng-content></ng-content>'+  
       '<ng-content select="ng-container[role=header]"></ng-content>'+  
