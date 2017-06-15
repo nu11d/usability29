@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '4'+
+      template: '3'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -84,7 +84,7 @@
       '</template>'+    
       '</div>'+  
       '</div>'+  
-      '<span md-dialog-close (click)="mddialogclose()">mn</span>mn'+
+      '<span md-dialog-close>mn</span>'+
       '<button md-dialog-close>Yes</button>'+
       '<button (click)="mddialogopen()">open</button>'
     }).Class({  
