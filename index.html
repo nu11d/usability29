@@ -99,8 +99,9 @@
       ngAfterViewInit: function() {
         
       },
-      ngOnInit: function() {
-        console.log(window.global.mddialogRef); //wgMdDialogRef    
+      ngOnInit: [window.global.mddialogRef,function(wgMdDialogRef) {
+        this.MdDialog = wgMdDialogRef;
+        console.log(this.MdDialog);
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
         let cMonth = this.Calendar.cMonth(ciMonth+1);    
@@ -118,7 +119,7 @@
             this.three.push(cellelement);
           }    
         }  
-      },  
+      }],  
       cellinfo: function(cell) {    
         let type = cell.type;    
         return (cell.value? cell.value +"("+this.Calendar.cDay()[type]+")" : "");  
