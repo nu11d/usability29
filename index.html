@@ -91,7 +91,6 @@
     }).Class({  
       constructor: [m1.Calendar, m1.InMemHeroService, ng.material.MdDialog, function(m1Calendar,m1InMemHeroService,ngMaterialMdDialog) {    
         this.Calendar = m1Calendar;
-        console.log(window.global.mddialogRef); //wgMdDialogRef
         //this.MdDialogRef = wgMdDialogRef;
         //this.InMemHeroService =  m1InMemHeroService;
         //this.MdDialog = ngMaterialMdDialog;
@@ -100,7 +99,8 @@
       ngAfterViewInit: function() {
         
       },
-      ngOnInit: function() {    
+      ngOnInit: function() {
+        console.log(window.global.mddialogRef); //wgMdDialogRef    
         let cYear = 2017;    
         let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
         let cMonth = this.Calendar.cMonth(ciMonth+1);    
