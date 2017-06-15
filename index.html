@@ -84,7 +84,7 @@
       '</template>'+    
       '</div>'+  
       '</div>'+  
-      '<span md-dialog-close (click)="mddialogclose()">mn</span>'+
+      '<span md-dialog-close (click)="mddialogclose()">mn</span>mn'+
       '<button md-dialog-close>Yes</button>'+
       '<button (click)="mddialogopen()">open</button>'
     }).Class({  
@@ -145,7 +145,8 @@
     });
 
     let AppComponent = ng.core.Component({  
-      selector: 'demo-app',  
+      selector: 'demo-app',
+      providers: [ng.material.MdDialog],
       template: ''+
       '<button (click)="mddialogopen()">open</button>'+  
       '<tpl-2b [tmp]="tmp">'+
