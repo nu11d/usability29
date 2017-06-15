@@ -47,7 +47,7 @@
     let MnComponent = ng.core.Component({  
       selector: 'mn',  
       inputs: ['relate'],
-      providers: [ng.material.MdDialog, ng.material.MdDialogRef(this)],
+      providers: [ng.material.MdDialog],
       template: ''+  
       '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+    
       '<div class="mdl-grid mdl-grid--no-spacing">'+
@@ -93,7 +93,8 @@
         this.Calendar = m1Calendar;
         this.InMemHeroService =  m1InMemHeroService;
         this.MdDialog = ngMaterialMdDialog;
-        console.log(this.InMemHeroService.lst());
+        //console.log(this.InMemHeroService.lst());
+        console.log(ng.material);
       }],  
       ngOnInit: function() {    
         let cYear = 2017;    
