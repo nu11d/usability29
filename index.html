@@ -47,7 +47,7 @@
     let MnComponent = ng.core.Component({  
       selector: 'mn',  
       inputs: ['relate'],
-      providers: [ng.material.MdDialog],
+      providers: [ng.material.MdDialog, ng.material.MdDialogRef(this)],
       template: ''+  
       '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+    
       '<div class="mdl-grid mdl-grid--no-spacing">'+
