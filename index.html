@@ -135,7 +135,7 @@
       selector: 'demo-app',  
       template: ''+
       '<button (click)="mddialogopen()">open</button>'+  
-      '<tpl-2b [tmp]="AppComponent.tmp">'+
+      '<tpl-2b [tmp]="tmp">'+
       '<ng-container role="header">'+  
       'This is my header content.'+  
       '</ng-container>'+  
@@ -154,7 +154,7 @@
     }).Class({  
       constructor: [ng.material.MdDialog, function(mddialog) {
         this.MdDialog = mddialog;
-        this.AppComponent.tmp = ["hello."];
+        this.tmp = ["hello."];
       }],  
       ngOnInit: function() {
         
@@ -167,7 +167,7 @@
       },
       mddialogopen: function() {
         this.mddialogRef = this.MdDialog.open(MnComponent);
-        this.AppComponent.tmp.push("helloo..");
+        this.tmp.push("helloo..");
         window.global.mddialogRef = this.mddialogRef;
       }
     });
