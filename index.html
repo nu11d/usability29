@@ -89,9 +89,10 @@
       '</div>'+  
       '<span md-dialog-close (click)="mddialogclose()">mn</span>'
     }).Class({  
-      constructor: [m1.Calendar, m1.InMemHeroService, window.global.mddialogRef, ng.material.MdDialog, function(m1Calendar,m1InMemHeroService,wgMdDialogRef,ngMaterialMdDialog) {    
+      constructor: [m1.Calendar, m1.InMemHeroService, ng.material.MdDialog, function(m1Calendar,m1InMemHeroService,ngMaterialMdDialog) {    
         this.Calendar = m1Calendar;
-        this.MdDialogRef = wgMdDialogRef;
+        console.log(window.global.mddialogRef); //wgMdDialogRef
+        //this.MdDialogRef = wgMdDialogRef;
         //this.InMemHeroService =  m1InMemHeroService;
         //this.MdDialog = ngMaterialMdDialog;
         //console.log(this.InMemHeroService.lst());
@@ -134,7 +135,7 @@
         //MdDialog.close();
         //this.MdDialog.closeAll();
         //window.global.mddialogRef.close();
-        this.MdDialogRef.close();
+        //this.MdDialogRef.close();
       }
     });
     let AppComponent = ng.core.Component({  
