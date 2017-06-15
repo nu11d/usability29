@@ -24,8 +24,9 @@
 <script>(function(template2){
     let m1 =  template2.module1;
     let TplComponent = ng.core.Component({  
-      selector: 'tpl-2b',  
-      template: ''+  
+      selector: 'tpl-2b',
+      inputs: ['tmp'],  
+      template: '{{tmp}}'+
       '<ng-content select="ng-container[role=footer]"></ng-content>'+  
       '<ng-content></ng-content>'+  
       '<ng-content select="ng-container[role=header]"></ng-content>'+  
@@ -133,9 +134,8 @@
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',  
       template: ''+
-      window.global.tmp+
       '<button (click)="mddialogopen()">open</button>'+  
-      '<tpl-2b>'+
+      '<tpl-2b [tmp]="'+window.global.tmp+'">'+
       '<ng-container role="header">'+  
       'This is my header content.'+  
       '</ng-container>'+  
@@ -154,7 +154,6 @@
     }).Class({  
       constructor: [ng.material.MdDialog, function(mddialog) {
         this.MdDialog = mddialog;
-        this.globaltmp = "globaltmp";
       }],  
       ngOnInit: function() {
         
@@ -168,7 +167,6 @@
       mddialogopen: function() {
         this.mddialogRef = this.MdDialog.open(MnComponent);
         window.global.mddialogRef = this.mddialogRef;
-        this.globaltmp = window.global.tmp;
       }
     });
 
