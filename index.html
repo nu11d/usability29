@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '4'+
+      template: '5'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -60,9 +60,10 @@
         let this2 = this;
         this.MdDialogRef = window.global.mddialogRef;
         this.MdDialogRef.afterClosed().subscribe(function(result){
-          //console.log("good:"+result);
           if (typeof result === "undefined") {
-            result = "escape / overlay";
+            //result = "escape / overlay";
+          } else {
+
           }
           this2.tmp.emit(result);
         });
@@ -208,10 +209,11 @@
       },
       mddialogopen: function() {
         this.mddialogRef = this.MdDialog.open(DialogComponent);
-        this.tmp.push("helloo.DialogComponent.");
+        this.tmp.pop();
         window.global.mddialogRef = this.mddialogRef;
         this.mddialogRef.componentInstance.tmp.subscribe(function(tmp){
-          window.alert("to.DialogComponent.from:"+tmp);
+          //console.log("to.DialogComponent.from:"+tmp);
+          if (this.isset(tmp)) this.tmp.push(tmp);
 				});
       }
     });
