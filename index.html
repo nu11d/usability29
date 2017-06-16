@@ -57,7 +57,7 @@
       '</template>'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
-      '<button [md-dialog-close]="\'O\'">O</button>'+'<button (click)="pick.pop()">X</button>'+
+      '<button [md-dialog-close]="pick">O</button>'+'<button (click)="pick.pop()">X</button>'+
       '</md-dialog-actions>'
     }).Class({  
       constructor: [new ng.core.Inject(ng.material.MD_DIALOG_DATA),new ng.core.Inject(ng.material.MdDialogRef),function(MD_DIALOG_DATA,MdDialogRef) {
