@@ -53,7 +53,8 @@
       '<button [md-dialog-close]="\'O\'">O</button>'+'<button [md-dialog-close]="\'X\'">X</button>'+
       '</md-dialog-actions>'
     }).Class({  
-      constructor: [function() {
+      constructor: [new ng.core.Inject(ng.material.MD_DIALOG_DATA),function(MD_DIALOG_DATA) {
+        this.data = MD_DIALOG_DATA;
         this.tmp = new ng.core.EventEmitter();
       }],
       ngOnInit: function() {
