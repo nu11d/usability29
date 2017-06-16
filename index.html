@@ -51,8 +51,10 @@
 			'<input mdInput [mdDatepicker]="myDatepicker">'+
 			'<button mdSuffix [mdDatepickerToggle]="myDatepicker"></button>'+
 			'</md-input-container>'+
-			'<md-datepicker (selectedChanged)="tell($event)" #myDatepicker></md-datepicker><br>'+
-      '<span>md-dialog-content</span><br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a'+
+			'<md-datepicker (selectedChanged)="picked($event)" #myDatepicker></md-datepicker><br>'+
+      '<template ngFor let-num [ngForOf]="pick" let-index="index">'+
+      '<p>{{index}}.{{num}}</p>'+
+      '</template>'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
       '<button [md-dialog-close]="\'O\'">O</button>'+'<button [md-dialog-close]="\'X\'">X</button>'+
@@ -62,6 +64,7 @@
         this.data = MD_DIALOG_DATA;
         this.MdDialogRef = MdDialogRef;
         this.tmp = new ng.core.EventEmitter();
+        this.pick = ['<span>picked item</span>'];
       }],
       ngOnInit: function() {
         let this2 = this;
@@ -74,6 +77,9 @@
           }
           this2.tmp.emit(result);
         });
+      },
+      picked: function(string) {
+        this.pick.push(string);
       }
     });
     let MnComponent = ng.core.Component({  
