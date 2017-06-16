@@ -53,18 +53,19 @@
 			'</md-input-container>'+
 			'<md-datepicker (selectedChanged)="picked($event)" #myDatepicker></md-datepicker><br>'+
       '<template ngFor let-num [ngForOf]="pick" let-index="index">'+
-      '<p><button [md-dialog-close]="num">{{index+1}}</button>{{num}}</p>'+
+      '<p><button (click)="mddialogopen(num)">{{index+1}}</button>{{num}}</p>'+
       '</template>'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
       '<button [md-dialog-close]="pick">O</button>'+'<button (click)="pick.pop()">X</button>'+
       '</md-dialog-actions>'
     }).Class({  
-      constructor: [new ng.core.Inject(ng.material.MD_DIALOG_DATA),new ng.core.Inject(ng.material.MdDialogRef),function(MD_DIALOG_DATA,MdDialogRef) {
+      constructor: [new ng.core.Inject(ng.material.MD_DIALOG_DATA),new ng.core.Inject(ng.material.MdDialogRef),ng.material.MdDialog,function(MD_DIALOG_DATA,MdDialogRef,mddialog) {
         this.data = MD_DIALOG_DATA;
         this.MdDialogRef = MdDialogRef;
         this.tmp = new ng.core.EventEmitter();
         this.pick = [];
+        this.MdDialog = mddialog;
       }],
       ngOnInit: function() {
         let this2 = this;
@@ -81,6 +82,11 @@
       picked: function(date) {
         let humanmonth = date.getMonth()+1;
         this.pick.push(date.getFullYear()+"/"+humanmonth+"/"+date.getDate());
+      },
+      mddialogopen: function(pick) {
+        this.mddialogRef = this.MdDialog.open(DialogComponent,{
+          data: pick
+        });
       }
     });
     let MnComponent = ng.core.Component({  
