@@ -78,8 +78,8 @@
           this2.tmp.emit(result);
         });
       },
-      picked: function(string) {
-        this.pick.push(string.getFullYear()+""+string.getMonth());
+      picked: function(date) {
+        this.pick.push(date.getFullYear()+"/"+date.getMonth()+1+"/"+date.getDay());
       }
     });
     let MnComponent = ng.core.Component({  
