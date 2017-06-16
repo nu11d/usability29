@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '5'+
+      template: '4'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -208,12 +208,13 @@
         return !(typeof property === "undefined");  
       },
       mddialogopen: function() {
+        let this2 = this;
         this.mddialogRef = this.MdDialog.open(DialogComponent);
         this.tmp.pop();
         window.global.mddialogRef = this.mddialogRef;
         this.mddialogRef.componentInstance.tmp.subscribe(function(tmp){
           //console.log("to.DialogComponent.from:"+tmp);
-          if (this.isset(tmp)) this.tmp.push(tmp);
+          if (this2.isset(tmp)) this.tmp.push(tmp);
 				});
       }
     });
