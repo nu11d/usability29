@@ -53,7 +53,7 @@
 			'</md-input-container>'+
 			'<md-datepicker (selectedChanged)="picked($event)" #myDatepicker></md-datepicker><br>'+
       '<template ngFor let-num [ngForOf]="pick" let-index="index">'+
-      '<p>{{index}}.{{num}}</p>'+
+      '<p><button [md-dialog-close]="num">{{index}}</button>{{num}}</p>'+
       '</template>'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
