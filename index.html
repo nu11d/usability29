@@ -43,32 +43,32 @@
     let dtComponent = ng.core.Component({  
       selector: 'never-be-used-selector',
       providers: [ng.material.MdDialog],
-      outputs: ['tmp','calout2'],
+      outputs: ['cls'],
       template: ''+
       '<h2 md-dialog-title>pop-up</h2>'+
       '<md-dialog-content>'+
       '{{data}}'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
-      '<button [md-dialog-close]="\'close\'">close</button>'+
+      '<button [md-dialog-close]="\'AM\'">AM</button>'+
+      '<button [md-dialog-close]="\'PM\'">PM</button>'+
       '</md-dialog-actions>'
     }).Class({  
       constructor: [new ng.core.Inject(ng.material.MD_DIALOG_DATA),new ng.core.Inject(ng.material.MdDialogRef),ng.material.MdDialog,function(MD_DIALOG_DATA,MdDialogRef,mddialog) {
         this.data = MD_DIALOG_DATA;
         this.MdDialogRef = MdDialogRef;
-        this.tmp = new ng.core.EventEmitter();
+        this.cls = new ng.core.EventEmitter();
         this.MdDialog = mddialog;
       }],
       ngOnInit: function() {
         let this2 = this;
-        //this.MdDialogRef = window.global.mddialogRef;
         this.MdDialogRef.afterClosed().subscribe(function(result){
           if (typeof result === "undefined") {
             //result = "escape / overlay";
           } else {
 
           }
-          this2.tmp.emit(result);
+          this2.cls.emit(result);
         });
       }
     });
@@ -85,7 +85,7 @@
 			'</md-input-container>'+
 			'<md-datepicker (selectedChanged)="picked($event)" #myDatepicker></md-datepicker><br>'+
       '<template ngFor let-num [ngForOf]="pick" let-index="index">'+
-      '<p><button (click)="mddialogopen(num)">{{index+1}}</button>{{num}}</p>'+
+      '<p id="index"><button (click)="mddialogopen(num,index)">{{index+1}}</button>{{num}}</p>'+
       '</template>'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
@@ -115,10 +115,13 @@
         let humanmonth = date.getMonth()+1;
         this.pick.push(date.getFullYear()+"/"+humanmonth+"/"+date.getDate());
       },
-      mddialogopen: function(pick) {
+      mddialogopen: function(pick,index) {
         this.mddialogRef = this.MdDialog.open(dtComponent,{
           data: pick
         });
+        this.mddialogRef.componentInstance.cls.subscribe(function(cls){
+          if (this2.isset(cls)) document.getElementById(index).textContent += cls;
+				});
       }
     });
     let MnComponent = ng.core.Component({  
