@@ -26,14 +26,14 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '3'+
+      template: ''+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
-      '{{index}}.{{num}}'+
-      '</template>'+
-      '<ng-content select="ng-container[role=footer]"></ng-content>'+  
-      '<ng-content></ng-content>'+  
-      '<ng-content select="ng-container[role=header]"></ng-content>'+  
-      'tpl-2b'
+      '<p>{{index}}.{{num}}</p>'+
+      '</template>'
+      //'<ng-content select="ng-container[role=footer]"></ng-content>'+  
+      //'<ng-content></ng-content>'+  
+      //'<ng-content select="ng-container[role=header]"></ng-content>'+  
+      //'tpl-2b'
     }).Class({  
       constructor: [function() {  
       }],  
@@ -50,7 +50,7 @@
       '<span>md-dialog-content</span><br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
-      '<button [md-dialog-close]="\'md-dialog-close\'">md-dialog-close</button>'+
+      '<button [md-dialog-close]="\'O\'">O</button>'+'<button [md-dialog-close]="\'X\'">X</button>'+
       '</md-dialog-actions>'
     }).Class({  
       constructor: [function() {
@@ -196,7 +196,7 @@
     }).Class({  
       constructor: [ng.material.MdDialog, function(mddialog) {
         this.MdDialog = mddialog;
-        this.tmp = ["hello."];
+        this.tmp = ["data-list"];
       }],  
       ngOnInit: function() {
         
@@ -210,7 +210,7 @@
       mddialogopen: function() {
         let this2 = this;
         this.mddialogRef = this.MdDialog.open(DialogComponent);
-        this.tmp.pop();
+        //this.tmp.pop();
         window.global.mddialogRef = this.mddialogRef;
         this.mddialogRef.componentInstance.tmp.subscribe(function(tmp){
           //console.log("to.DialogComponent.from:"+tmp);
