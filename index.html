@@ -79,7 +79,8 @@
         });
       },
       picked: function(date) {
-        this.pick.push(date.getFullYear()+"/"+date.getMonth()+1+"/"+date.getDay());
+        let humanmonth = date.getMonth()+1;
+        this.pick.push(date.getFullYear()+"/"+humanmonth+"/"+date.getDay());
       }
     });
     let MnComponent = ng.core.Component({  
