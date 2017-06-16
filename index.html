@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '0'+
+      template: '1'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -45,7 +45,7 @@
       providers: [ng.material.MdDialog],
       outputs: ['tmp','calout2'],
       template: 'DialogComponent'+
-      '<button [md-dialog-close]="\"md-dialog-close\"">md-dialog-close</button>'+  
+      '<button [md-dialog-close]="\'md-dialog-close\'">md-dialog-close</button>'+  
       'DialogComponent'
     }).Class({  
       constructor: [function() {
