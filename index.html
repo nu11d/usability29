@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '4'+
+      template: '3'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -214,7 +214,7 @@
         window.global.mddialogRef = this.mddialogRef;
         this.mddialogRef.componentInstance.tmp.subscribe(function(tmp){
           //console.log("to.DialogComponent.from:"+tmp);
-          if (this2.isset(tmp)) this.tmp.push(tmp);
+          if (this2.isset(tmp)) this2.tmp.push(tmp);
 				});
       }
     });
