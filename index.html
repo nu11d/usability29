@@ -47,6 +47,11 @@
       template: ''+
       '<h2 md-dialog-title>pop-up</h2>'+
       '<md-dialog-content>'+
+      '<md-input-container>'+
+			'<input mdInput [mdDatepicker]="myDatepicker">'+
+			'<button mdSuffix [mdDatepickerToggle]="myDatepicker"></button>'+
+			'</md-input-container>'+
+			'<md-datepicker (selectedChanged)="tell($event)" #myDatepicker></md-datepicker><br>'+
       '<span>md-dialog-content</span><br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
