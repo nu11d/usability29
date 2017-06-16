@@ -40,6 +40,38 @@
       ngOnInit: function() {  
       }
     });
+    let dtComponent = ng.core.Component({  
+      selector: 'never-be-used-selector',
+      providers: [ng.material.MdDialog],
+      outputs: ['tmp','calout2'],
+      template: ''+
+      '<h2 md-dialog-title>pop-up</h2>'+
+      '<md-dialog-content>'+
+      '{{data}}'+
+      '</md-dialog-content>'+
+      '<md-dialog-actions>'+
+      '<button [md-dialog-close]="\'close\'">close</button>'+
+      '</md-dialog-actions>'
+    }).Class({  
+      constructor: [new ng.core.Inject(ng.material.MD_DIALOG_DATA),new ng.core.Inject(ng.material.MdDialogRef),ng.material.MdDialog,function(MD_DIALOG_DATA,MdDialogRef,mddialog) {
+        this.data = MD_DIALOG_DATA;
+        this.MdDialogRef = MdDialogRef;
+        this.tmp = new ng.core.EventEmitter();
+        this.MdDialog = mddialog;
+      }],
+      ngOnInit: function() {
+        let this2 = this;
+        //this.MdDialogRef = window.global.mddialogRef;
+        this.MdDialogRef.afterClosed().subscribe(function(result){
+          if (typeof result === "undefined") {
+            //result = "escape / overlay";
+          } else {
+
+          }
+          this2.tmp.emit(result);
+        });
+      }
+    });
     let DialogComponent = ng.core.Component({  
       selector: 'never-be-used-selector',
       providers: [ng.material.MdDialog],
@@ -84,7 +116,7 @@
         this.pick.push(date.getFullYear()+"/"+humanmonth+"/"+date.getDate());
       },
       mddialogopen: function(pick) {
-        this.mddialogRef = this.MdDialog.open(DialogComponent,{
+        this.mddialogRef = this.MdDialog.open(dtComponent,{
           data: pick
         });
       }
@@ -250,9 +282,9 @@
 			    ng.material.MdInputModule,
 			    ng.material.MdNativeDateModule,
 			    ng.material.MdDatepickerModule ],    
-        declarations: [ AppComponent, TplComponent, MnComponent, DialogComponent, m1.Sel ],    
+        declarations: [ AppComponent, TplComponent, MnComponent, DialogComponent, dtComponent, m1.Sel ],    
         providers: [ m1.Calendar, m1.InMemHeroService, ng.material.MdDialog ],
-        entryComponents: [ MnComponent, DialogComponent ],   
+        entryComponents: [ MnComponent, DialogComponent, dtComponent ],   
         bootstrap: [ AppComponent ]  
       }).Class({    
         constructor: function() {    
