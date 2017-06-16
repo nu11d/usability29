@@ -79,7 +79,7 @@
         });
       },
       picked: function(string) {
-        this.pick.push(string);
+        this.pick.push(string.getFullYear()+""+string.getMonth());
       }
     });
     let MnComponent = ng.core.Component({  
