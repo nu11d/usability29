@@ -28,7 +28,7 @@
       inputs: ['tmp'],  
       template: ''+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
-      '<p>{{index}}.{{num}}</p>'+
+      '<p>{{num}}</p>'+
       '</template>'
       //'<ng-content select="ng-container[role=footer]"></ng-content>'+  
       //'<ng-content></ng-content>'+  
@@ -45,7 +45,7 @@
       providers: [ng.material.MdDialog],
       outputs: ['tmp','calout2'],
       template: ''+
-      '<h2 md-dialog-title>pop-up</h2>'+
+      '<h2 md-dialog-title>picked item(s)</h2>'+
       '<md-dialog-content>'+
       '<md-input-container>'+
 			'<input mdInput [mdDatepicker]="myDatepicker">'+
@@ -53,7 +53,7 @@
 			'</md-input-container>'+
 			'<md-datepicker (selectedChanged)="picked($event)" #myDatepicker></md-datepicker><br>'+
       '<template ngFor let-num [ngForOf]="pick" let-index="index">'+
-      '<p><button [md-dialog-close]="num">{{index}}</button>{{num}}</p>'+
+      '<p><button [md-dialog-close]="num">{{index+1}}</button>{{num}}</p>'+
       '</template>'+
       '</md-dialog-content>'+
       '<md-dialog-actions>'+
@@ -64,7 +64,7 @@
         this.data = MD_DIALOG_DATA;
         this.MdDialogRef = MdDialogRef;
         this.tmp = new ng.core.EventEmitter();
-        this.pick = ['picked item(s)'];
+        this.pick = [];
       }],
       ngOnInit: function() {
         let this2 = this;
