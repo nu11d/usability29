@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '3'+
+      template: '2'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -43,12 +43,21 @@
     let DialogComponent = ng.core.Component({  
       selector: 'this-will-not-be-called',
       providers: [ng.material.MdDialog],
+      outputs: ['tmp','calout2'],
       template: 'DialogComponent'+
       '<button [md-dialog-close]="md-dialog-close">md-dialog-close</button>'+  
       'DialogComponent'
     }).Class({  
-      constructor: [function() {  
-      }]
+      constructor: [function() {
+        this.tmp = new ng.core.EventEmitter();
+      }],
+      ngOnInit: function() {
+        this.MdDialogRef = window.global.mddialogRef;
+        this.MdDialogRef.afterClosed().subscribe(function(result){
+          //console.log("good:"+result);
+          this.tmp.emit(result);
+        });
+      }
     });
     let MnComponent = ng.core.Component({  
       selector: 'mn',  
@@ -192,8 +201,8 @@
         this.mddialogRef = this.MdDialog.open(DialogComponent);
         this.tmp.push("helloo.DialogComponent.");
         window.global.mddialogRef = this.mddialogRef;
-        this.mddialogRef.componentInstance.calout1.subscribe(function(calout1){
-          window.alert("hello.DialogComponent.from:"+calout1);
+        this.mddialogRef.componentInstance.tmp.subscribe(function(tmp){
+          window.alert("to.DialogComponent.from:"+tmp);
 				});
       }
     });
