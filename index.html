@@ -225,7 +225,14 @@
 
     document.addEventListener('DOMContentLoaded', function() {  
       let AppModule = ng.core.NgModule({    
-        imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.platformBrowser.animations.BrowserAnimationsModule, ng.material.MdDialogModule ],    
+        imports: [ m1,
+          ng.platformBrowser.BrowserModule,
+          ng.http.HttpModule,
+          ng.platformBrowser.animations.BrowserAnimationsModule,
+          ng.material.MdDialogModule,
+			    ng.material.material.MdInputModule,
+			    ng.material.material.MdNativeDateModule,
+			    ng.material.material.MdDatepickerModule ],    
         declarations: [ AppComponent, TplComponent, MnComponent, DialogComponent, m1.Sel ],    
         providers: [ m1.Calendar, m1.InMemHeroService, ng.material.MdDialog ],
         entryComponents: [ MnComponent, DialogComponent ],   
