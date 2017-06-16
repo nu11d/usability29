@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '2'+
+      template: '1'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -52,10 +52,11 @@
         this.tmp = new ng.core.EventEmitter();
       }],
       ngOnInit: function() {
+        let this2 = this;
         this.MdDialogRef = window.global.mddialogRef;
         this.MdDialogRef.afterClosed().subscribe(function(result){
           //console.log("good:"+result);
-          this.tmp.emit(result);
+          this2.tmp.emit(result);
         });
       }
     });
