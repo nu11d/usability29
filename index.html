@@ -45,7 +45,7 @@
       providers: [ng.material.MdDialog],
       outputs: ['tmp','calout2'],
       template: ''+
-      '<h2 md-dialog-title>picked item(s)</h2>'+
+      '<h2 md-dialog-title>{{data}}</h2>'+
       '<md-dialog-content>'+
       '<md-input-container>'+
 			'<input mdInput [mdDatepicker]="myDatepicker">'+
@@ -224,7 +224,7 @@
       mddialogopen: function() {
         let this2 = this;
         this.mddialogRef = this.MdDialog.open(DialogComponent,{
-          data: "hello from mddialogopen"
+          data: "picked item(s)"
         });
         //this.tmp.pop();
         //window.global.mddialogRef = this.mddialogRef;
