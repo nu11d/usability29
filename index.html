@@ -26,7 +26,7 @@
     let TplComponent = ng.core.Component({  
       selector: 'tpl-2b',
       inputs: ['tmp'],  
-      template: '2'+
+      template: '3'+
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '{{index}}.{{num}}'+
       '</template>'+
@@ -41,12 +41,17 @@
       }
     });
     let DialogComponent = ng.core.Component({  
-      selector: 'this-will-not-be-called',
+      selector: 'never-be-used-selector',
       providers: [ng.material.MdDialog],
       outputs: ['tmp','calout2'],
-      template: 'DialogComponent'+
-      '<button [md-dialog-close]="\'md-dialog-close\'">md-dialog-close</button>'+  
-      'DialogComponent'
+      template: ''+
+      '<h2 md-dialog-title>pop-up</h2>'+
+      '<md-dialog-content>'+
+      '<span>md-dialog-content</span>'+
+      '</md-dialog-content>'+
+      '<md-dialog-actions>'+
+      '<button [md-dialog-close]="\'md-dialog-close\'">md-dialog-close</button>'+
+      '</md-dialog-actions>'
     }).Class({  
       constructor: [function() {
         this.tmp = new ng.core.EventEmitter();
