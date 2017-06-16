@@ -40,6 +40,16 @@
       ngOnInit: function() {  
       }
     });
+    let DialogComponent = ng.core.Component({  
+      selector: 'this-will-not-be-called',
+      providers: [ng.material.MdDialog],
+      template: 'DialogComponent'+
+      '<button [md-dialog-close]="md-dialog-close">md-dialog-close</button>'+  
+      'DialogComponent'
+    }).Class({  
+      constructor: [function() {  
+      }]
+    });
     let MnComponent = ng.core.Component({  
       selector: 'mn',  
       inputs: ['relate'],
@@ -191,9 +201,9 @@
     document.addEventListener('DOMContentLoaded', function() {  
       let AppModule = ng.core.NgModule({    
         imports: [ m1, ng.platformBrowser.BrowserModule, ng.http.HttpModule, ng.platformBrowser.animations.BrowserAnimationsModule, ng.material.MdDialogModule ],    
-        declarations: [ AppComponent, TplComponent, MnComponent, m1.Sel ],    
+        declarations: [ AppComponent, TplComponent, MnComponent, DialogComponent, m1.Sel ],    
         providers: [ m1.Calendar, m1.InMemHeroService, ng.material.MdDialog ],
-        entryComponents: [ MnComponent ],   
+        entryComponents: [ MnComponent, DialogComponent ],   
         bootstrap: [ AppComponent ]  
       }).Class({    
         constructor: function() {    
