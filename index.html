@@ -56,6 +56,7 @@
       constructor: [new ng.core.Inject(ng.material.MD_DIALOG_DATA),function(MD_DIALOG_DATA) {
         this.data = MD_DIALOG_DATA;
         this.tmp = new ng.core.EventEmitter();
+        window.alert(this.data);
       }],
       ngOnInit: function() {
         let this2 = this;
@@ -210,7 +211,9 @@
       },
       mddialogopen: function() {
         let this2 = this;
-        this.mddialogRef = this.MdDialog.open(DialogComponent);
+        this.mddialogRef = this.MdDialog.open(DialogComponent,{
+          data: "hello from mddialogopen"
+        });
         //this.tmp.pop();
         window.global.mddialogRef = this.mddialogRef;
         this.mddialogRef.componentInstance.tmp.subscribe(function(tmp){
