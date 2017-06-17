@@ -116,6 +116,7 @@
         this.pick.push(date.getFullYear()+"/"+humanmonth+"/"+date.getDate());
       },
       mddialogopen: function(pick,index) {
+        let this2 = this;
         this.mddialogRef = this.MdDialog.open(dtComponent,{
           data: pick
         });
