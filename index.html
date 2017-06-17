@@ -114,6 +114,9 @@
       picked: function(date) {
         let humanmonth = date.getMonth()+1;
         this.pick.push(date.getFullYear()+"/"+humanmonth+"/"+date.getDate());
+      },  
+      isset: function(property) {    
+        return !(typeof property === "undefined");  
       },
       mddialogopen: function(pick,index) {
         let this2 = this;
