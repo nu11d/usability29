@@ -17,8 +17,6 @@
 <script src="//unpkg.com/@angular/platform-browser/bundles/platform-browser-animations.umd.js"></script>
 <script src="//unpkg.com/@angular/material/bundles/material.umd.js"></script>
 
-<link href="//unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
-
 <script src="./common.js"></script>
 <script src="./module1.js"></script>
 <script>(function(template2){
@@ -126,7 +124,7 @@
         this.mddialogRef.componentInstance.cls.subscribe(function(cls){
           if (this2.isset(cls)) {
             //let newtext = document.createTextNode(cls);
-            this2.pick[index] += newtext;
+            this2.pick[index] += cls;
             //document.getElementById(index).appendChild(newtext);
           }
 				});
