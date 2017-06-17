@@ -120,6 +120,7 @@
           data: pick
         });
         this.mddialogRef.componentInstance.cls.subscribe(function(cls){
+          console.log("debug:"+document.getElementById(index));
           if (this2.isset(cls)) document.getElementById(index).textContent += cls;
 				});
       }
