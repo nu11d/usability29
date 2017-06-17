@@ -125,7 +125,7 @@
         });
         this.mddialogRef.componentInstance.cls.subscribe(function(cls){
           if (this2.isset(cls)) {
-            let newtext = document.createTextNode(cls),
+            let newtext = document.createTextNode(cls);
             document.getElementById(index).appendChild(newtext);
           }
 				});
