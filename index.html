@@ -28,10 +28,6 @@
       '<template ngFor let-num [ngForOf]="tmp" let-index="index">'+
       '<p>{{num}}</p>'+
       '</template>'
-      //'<ng-content select="ng-container[role=footer]"></ng-content>'+  
-      //'<ng-content></ng-content>'+  
-      //'<ng-content select="ng-container[role=header]"></ng-content>'+  
-      //'tpl-2b'
     }).Class({  
       constructor: [function() {  
       }],  
@@ -61,11 +57,6 @@
       ngOnInit: function() {
         let this2 = this;
         this.MdDialogRef.afterClosed().subscribe(function(result){
-          if (typeof result === "undefined") {
-            //result = "escape / overlay";
-          } else {
-
-          }
           this2.cls.emit(result);
         });
       }
@@ -99,13 +90,7 @@
       }],
       ngOnInit: function() {
         let this2 = this;
-        //this.MdDialogRef = window.global.mddialogRef;
         this.MdDialogRef.afterClosed().subscribe(function(result){
-          if (typeof result === "undefined") {
-            //result = "escape / overlay";
-          } else {
-
-          }
           this2.tmp.emit(result);
         });
       },
@@ -123,135 +108,16 @@
         });
         this.mddialogRef.componentInstance.cls.subscribe(function(cls){
           if (this2.isset(cls)) {
-            //let newtext = document.createTextNode(cls);
             this2.pick[index] += cls;
-            //document.getElementById(index).appendChild(newtext);
           }
 				});
       }
     });
-    let MnComponent = ng.core.Component({  
-      selector: 'mn',  
-      inputs: ['relate'],
-      outputs: ['calout1','calout2'],
-      providers: [ng.material.MdDialog],
-      template: ''+  
-      '<div class="swap-size mdl-cell mdl-cell--12-col-desktop">'+    
-      '<div class="mdl-grid mdl-grid--no-spacing">'+
-      '<div class="mdl-cell mdl-cell--12-col">'+  
-      '<strong>{{cnMonth}}月</strong>'+  
-      '<ng-content select="ng-container[role=header]"></ng-content>'+
-      '</div>'+
-      '<template ngFor let-row [ngForOf]="[0,1,2,3,4,5]">'+  
-      '<div class="mdl-cell mdl-cell--6-col-desktop">'+    
-      '<div class="mdl-grid mdl-grid--no-spacing">'+
-      '<template ngFor let-num [ngForOf]="three" let-index="index">'+
-      '<div *ngIf="row==num.row&&index%7<3; then thenBlock else elseBlock"></div>'+
-      '<ng-template #thenBlock>'+  
-      '<div [ngClass]="{\'mdl-cell--2-offset\': index%7==0,'+
-      '\'mdl-cell--3-offset-desktop\': index%7==0,'+
-      '\'first-bag\': num.value>0}"'+  
-      ' class="mdl-cell mdl-cell--2-col mdl-cell--3-col-desktop"'+  
-      '>{{ cellinfo(num) }}'+   
-      '</div>'+
-      '</ng-template>'+
-      '<ng-template #elseBlock>'+
-      '</ng-template>'+
-      '</template>'+    
-      '</div>'+  
-      '</div>'+  
-      '<div class="mdl-cell mdl-cell--6-col-desktop">'+    
-      '<div class="mdl-grid mdl-grid--no-spacing">'+
-      '<template ngFor let-num [ngForOf]="three" let-index="index">'+
-      '<template [ngIf]="row==num.row&&index%7>=3">'+  
-      '<div [ngClass]="{\'first-bag\': num.value>0}" class="mdl-cell mdl-cell--2-col mdl-cell--3-col-desktop">'+    
-      '{{ cellinfo(num) }}'+   
-      '</div>'+
-      '</template>'+
-      '</template>'+    
-      '</div>'+  
-      '</div>'+
-      '</template>'+    
-      '</div>'+  
-      '</div>'+  
-      '<span (click)="mddialogclose()">mn</span>'+
-      '<button [md-dialog-close]="md-dialog-close">md-dialog-close</button>'+
-      '<button (click)="mddialogopen()">open</button>'
-    }).Class({  
-      constructor: [m1.Calendar, m1.InMemHeroService, ng.material.MdDialog, function(m1Calendar,m1InMemHeroService,ngMaterialMdDialog) {    
-        this.Calendar = m1Calendar;
-        //this.MdDialogRef = wgMdDialogRef;
-        //this.InMemHeroService =  m1InMemHeroService;
-        this.MdDialog = ngMaterialMdDialog;
-        this.calout1 = new ng.core.EventEmitter();
-        this.calout2 = new ng.core.EventEmitter();
-        //console.log(this.InMemHeroService.lst());
-      }],
-      ngOnInit: function() {
-        this.MdDialogRef = window.global.mddialogRef;
-        let cYear = 2017;    
-        let ciMonth = (typeof this.relate === "undefined" ? this.Calendar.ciMonth() : this.Calendar.ciMonth()+this.relate );    
-        let cMonth = this.Calendar.cMonth(ciMonth+1);    
-        this.cnMonth = this.Calendar.cnMonth(ciMonth);    
-        this.three = [];    
-        let cellelement = [];    
-        for (let row=0; row<cMonth[1].length; row++) {
-          for (let col=0; col<cMonth[1][row].length; col++) {  
-            let cellelement = {    
-              value: cMonth[1][row][col],    
-              name: cYear+"-"+ciMonth+"-"+cMonth[1][row][col],    
-              type: new Date(cYear,ciMonth,cMonth[1][row][col]).getDay(),    
-              row: row  
-            }  
-            this.three.push(cellelement);
-          }    
-        }  
-      },  
-      cellinfo: function(cell) {    
-        let type = cell.type;    
-        return (cell.value? cell.value +"("+this.Calendar.cDay()[type]+")" : "");  
-      },  
-      mddialogclose: function() {
-        //this.MdDialog.closeAll();
-        //window.global.mddialogRef.close();
-        this.MdDialogRef.close("mddialogclose");
-        this.MdDialogRef.afterClosed().subscribe(function(result){
-          console.log("good:"+result);
-        });
-        this.calout1.emit("oh oh oh");
-      },
-      mddialogopen: function() {
-        let this2 = this;
-        let mddialogRef = this.MdDialog.open(MnComponent);
-        mddialogRef.afterClosed().subscribe(function(result){
-          console.log("undefined without button:"+result);
-        });
-        mddialogRef.componentInstance.calout1.subscribe(function(calout1){
-          this2.calout1.emit("["+calout1+"]");
-          //this2.calout2.emit("calout2"+calout1);
-				});
-        window.global.mddialogRef = mddialogRef;
-      }
-    });
-
     let AppComponent = ng.core.Component({  
       selector: 'demo-app',
       template: ''+
       '<button (click)="mddialogopen()">open</button>'+  
       '<tpl-2b [tmp]="tmp">'+
-      '<ng-container role="header">'+  
-      'This is my header content.'+  
-      '</ng-container>'+  
-			'<ng-container role="footer">'+  
-      'This is my footer content.'+
-      '</ng-container>'+  
-      '<div class="mdl-grid mdl-grid--no-spacing">'+  
-
-      '<ng-container role="header">'+  
-      'This is my header content.'+     
-      '</ng-container>'+  
-
-      '</div>'+  
       '</tpl-2b>'+
       'demo-app'
     }).Class({  
@@ -261,10 +127,7 @@
       }],  
       ngOnInit: function() {
         
-      },  
-      extend: function(event) {    
-        //this.shacd = event.target.options[event.target.selectedIndex].dataset.cd;  
-      },  
+      },
       isset: function(property) {    
         return !(typeof property === "undefined");  
       },
@@ -273,10 +136,7 @@
         this.mddialogRef = this.MdDialog.open(DialogComponent,{
           data: "picked item(s)"
         });
-        //this.tmp.pop();
-        //window.global.mddialogRef = this.mddialogRef;
         this.mddialogRef.componentInstance.tmp.subscribe(function(tmp){
-          //console.log("to.DialogComponent.from:"+tmp);
           if (this2.isset(tmp)) this2.tmp.push(tmp);
 				});
       }
@@ -284,16 +144,16 @@
 
     document.addEventListener('DOMContentLoaded', function() {  
       let AppModule = ng.core.NgModule({    
-        imports: [ m1, ng.http.HttpModule,
+        imports: [ ng.http.HttpModule,
           ng.platformBrowser.BrowserModule,
           ng.platformBrowser.animations.BrowserAnimationsModule,
           ng.material.MdDialogModule,
 			    ng.material.MdInputModule,
 			    ng.material.MdNativeDateModule,
 			    ng.material.MdDatepickerModule ],    
-        declarations: [ AppComponent, TplComponent, MnComponent, DialogComponent, dtComponent, m1.Sel ],    
-        providers: [ m1.Calendar, m1.InMemHeroService, ng.material.MdDialog ],
-        entryComponents: [ MnComponent, DialogComponent, dtComponent ],   
+        declarations: [ AppComponent, TplComponent, DialogComponent, dtComponent ],    
+        providers: [ ng.material.MdDialog ],
+        entryComponents: [ DialogComponent, dtComponent ],   
         bootstrap: [ AppComponent ]  
       }).Class({    
         constructor: function() {    
