@@ -120,7 +120,7 @@
         let this2 = this;
         this.mddialogRef = this.MdDialog.open(dtComponent,{
           data: pick,
-          escapeToClose: false
+          disableClose: true
         });
         this.mddialogRef.componentInstance.cls.subscribe(function(cls){
           if (this2.isset(cls)) {
