@@ -119,7 +119,8 @@
       mddialogopen: function(pick,index) {
         let this2 = this;
         this.mddialogRef = this.MdDialog.open(dtComponent,{
-          data: pick
+          data: pick,
+          escapeToClose: false
         });
         this.mddialogRef.componentInstance.cls.subscribe(function(cls){
           if (this2.isset(cls)) {
