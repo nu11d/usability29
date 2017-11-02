@@ -10,7 +10,7 @@
 		'</select>'
 	})
 	.Class({
-		constructor: [ng.common.http.Http,function(httpService) {
+		constructor: [ng.http.Http,function(httpService) {
 			this.http = httpService;
 			console.log(this.option);
 		}],
@@ -346,7 +346,7 @@
 
 	let Rdbms = ng.core
 	.Class({
-		constructor: [ ng.common.http.Http, function(http) {
+		constructor: [ ng.http.Http, function(http) {
 			this.http = http;
 		}],
 
